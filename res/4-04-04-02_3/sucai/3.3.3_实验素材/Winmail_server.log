@@ -1,0 +1,20 @@
+Jun 01 12:00:00 mail.example.com postfix/smtpd[12345]: connect from client1.example.net[192.168.1.2]
+Jun 01 12:00:10 mail.example.com postfix/smtpd[12346]: 12346B7A: client=client1.example.net[192.168.1.2]
+Jun 01 12:00:15 mail.example.com postfix/cleanup[12347]: 12346B7A: message-id=<201206010000.15345@example.com>
+Jun 01 12:00:20 mail.example.com postfix/qmgr[12333]: 12346B7A: from=<sender@example.com>, size=1024, nrcpt=1 (queue active)
+Jun 01 12:00:25 mail.example.com postfix/local[12348]: 12346B7A: to=<recipient@example.com>, relay=local, delay=00:00:05, delays=00:00:01/00:00:00/00:00:04/00:00:00, dsn=2.0.0, status=sent (delivered via local delivery)
+Jun 01 12:00:30 mail.example.com postfix/smtpd[12349]: disconnect from client1.example.net[192.168.1.2]
+Jun 01 12:01:00 mail.example.com postfix/pickup[12350]: 12350B7B: uid=1001 from=<sender@example.com>
+Jun 01 12:01:05 mail.example.com postfix/cleanup[12351]: 12350B7B: message-id=<201206010101.05123@example.com>
+Jun 01 12:01:10 mail.example.com postfix/qmgr[12352]: 12350B7B: from=<sender@example.com>, size=2000, nrcpt=1 (queue active)
+Jun 01 12:01:15 mail.example.com postfix/smtpd[12353]: 12350B7B: to=<recipient@example.com>, relay=smtp.example.com[192.168.1.3], delay=00:00:03, delays=00:00:01/00:00:00/00:00:02/00:00:00, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as 12350B7B)
+Jun 01 12:01:20 mail.example.com postfix/smtpd[12354]: disconnect from smtp.example.com[192.168.1.3]
+Jun 01 12:02:00 mail.example.com postfix/spamd[12355]: 12360B7C: message-id=<201206010202.00123@example.com>; spam score 6.3, threshold 5.0: message filtered ( SPF: none )
+Jun 01 12:02:05 mail.example.com postfix/smtpd[12356]: warning: 12360B7C: message-id=<201206010202.00123@example.com>: spam score 6.3, threshold 5.0: message filtered
+Jun 01 12:02:10 mail.example.com postfix/spamd[12357]: 12361B7D: message-id=<20120601020201@example.com>; spam score 7.5, threshold 5.0: message filtered ( RCPT in RCPT TO:)
+Jun 01 12:02:15 mail.example.com postfix/smtpd[12358]: warning: 12361B7D: message-id=<20120601020201@example.com>: spam score 7.5, threshold 5.0: message filtered
+Jun 01 12:02:20 mail.example.com postfix/spamd[12359]: 12362B7E: message-id=<20120601020202@example.com>; spam score 8.0, threshold 5.0: message filtered ( Subject: "Free money now!!!" )
+Jun 01 12:03:00 mail.example.com postfix/spamd[12360]: 12363B7F: message-id=<201206010300.30123@example.com>; spam score 6.5, threshold 5.0: message filtered ( HTML: 80%)
+Jun 01 12:03:05 mail.example.com postfix/smtpd[12361]: warning: 12363B7F: message-id=<201206010300.30123@example.com>: spam score 6.5, threshold 5.0: message filtered
+Jun 01 12:03:10 mail.example.com postfix/spamd[12362]: 12364B7G: message-id=<201206010301.40123@example.com>; spam score 5.8, threshold 5.0: message filtered ( URI密度: 0.8)
+Jun 01 12:03:15 mail.example.com postfix/smtpd[12363]: warning: 12364B7G: message-id=<201206010301.40123@example.com>: spam score 5.8, threshold 5.0: message filtered

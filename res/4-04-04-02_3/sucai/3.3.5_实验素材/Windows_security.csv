@@ -1,0 +1,4718 @@
+关键字,日期和时间,来源,事件 ID,任务类别
+审核成功,2024/9/1 21:46:19,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Administrators
+	组名:		Administrators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0x3b0
+	进程名称:		C:\Windows\System32\svchost.exe"
+审核成功,2024/9/1 21:46:19,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+	登录 ID:		0xCAA7FE
+
+特权:		SeSecurityPrivilege
+			SeTakeOwnershipPrivilege
+			SeLoadDriverPrivilege
+			SeBackupPrivilege
+			SeRestorePrivilege
+			SeDebugPrivilege
+			SeSystemEnvironmentPrivilege
+			SeImpersonatePrivilege
+			SeDelegateSessionUserImpersonatePrivilege"
+审核成功,2024/9/1 21:46:19,Microsoft-Windows-Security-Auditing,4627,Group Membership,"组成员身份信息。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录类型:			2
+
+新登录:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名称:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+	登录 ID:		0xCAA7FE
+
+事件顺序:		1/1
+
+组成员身份:			
+		WIN-LBRDN7PCEGG\None
+		Everyone
+		NT AUTHORITY\本地帐户和管理员组成员
+		BUILTIN\Administrators
+		BUILTIN\Users
+		NT AUTHORITY\INTERACTIVE
+		CONSOLE LOGON
+		NT AUTHORITY\Authenticated Users
+		NT AUTHORITY\This Organization
+		NT AUTHORITY\本地帐户
+		LOCAL
+		NT AUTHORITY\NTLM Authentication
+		Mandatory Label\High Mandatory Level
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+配置审计组成员身份子类别时，将生成此事件。可以使用“登录 ID”字段，将此事件与相应的用户登录事件以及在此登录会话期间生成的任何其他安全审核事件相关联。"
+审核成功,2024/9/1 21:46:19,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		2
+	受限制的管理员模式:	-
+	虚拟帐户:		否
+	提升的令牌:		是
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名称:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+	登录 ID:		0xCAA7FE
+	链接的登录 ID:		0x0
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x3b0
+	进程名称:		C:\Windows\System32\svchost.exe
+
+网络信息:
+	工作站名称:	WIN-LBRDN7PCEGG
+	源网络地址:	127.0.0.1
+	源端口:		0
+
+详细的身份验证信息:
+	登录进程:		User32 
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 21:46:19,Microsoft-Windows-Security-Auditing,4648,Logon,"试图使用显式凭据登录。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+使用了哪个帐户的凭据:
+	帐户名:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+目标服务器:
+	目标服务器名:	localhost
+	附加信息:	localhost
+
+进程信息:
+	进程 ID:		0x3b0
+	进程名:		C:\Windows\System32\svchost.exe
+
+网络信息:
+	网络地址:	127.0.0.1
+	端口:			0
+
+在进程尝试通过显式指定帐户的凭据来登录该帐户时生成此事件。这通常发生在批量类型的配置中(例如计划任务) 或者使用 RUNAS 命令时。"
+审核成功,2024/9/1 21:46:19,Microsoft-Windows-Security-Auditing,4776,Credential Validation,"计算机试图验证帐户的凭据。
+
+验证包:	MICROSOFT_AUTHENTICATION_PACKAGE_V1_0
+登录帐户:	Administrator
+源工作站:	WIN-LBRDN7PCEGG
+错误代码:	0x0"
+审核失败,2024/9/1 21:46:09,Microsoft-Windows-Security-Auditing,4625,Logon,"帐户登录失败。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录类型:			2
+
+登录失败的帐户:
+	安全 ID:		NULL SID
+	帐户名:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+
+失败信息:
+	失败原因:		未知用户名或密码错误。
+	状态:			0xC000006D
+	子状态:		0xC000006A
+
+进程信息:
+	调用方进程 ID:	0x3b0
+	调用方进程名:	C:\Windows\System32\svchost.exe
+
+网络信息:
+	工作站名:	WIN-LBRDN7PCEGG
+	源网络地址:	127.0.0.1
+	源端口:		0
+
+详细身份验证信息:
+	登录进程:		User32 
+	身份验证数据包:	Negotiate
+	传递服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+登录请求失败时在尝试访问的计算机上生成此事件。
+
+“使用者”字段指明本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指明发生的登录的种类。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“进程信息”字段表明系统上的哪个帐户和进程请求了登录。
+
+“网络信息”字段指明远程登录请求来自哪里。“工作站名”并非总是可用，而且在某些情况下可能会留为空白。
+
+“身份验证信息”字段提供关于此特定登录请求的详细信息。
+	-“传递服务”指明哪些直接服务参与了此登录请求。
+	-“数据包名”指明在 NTLM 协议之间使用了哪些子协议。
+	-“密钥长度”指明生成的会话密钥的长度。如果没有请求会话密钥，则此字段为 0。"
+审核失败,2024/9/1 21:46:07,Microsoft-Windows-Security-Auditing,4625,Logon,"帐户登录失败。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录类型:			2
+
+登录失败的帐户:
+	安全 ID:		NULL SID
+	帐户名:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+
+失败信息:
+	失败原因:		未知用户名或密码错误。
+	状态:			0xC000006D
+	子状态:		0xC000006A
+
+进程信息:
+	调用方进程 ID:	0x3b0
+	调用方进程名:	C:\Windows\System32\svchost.exe
+
+网络信息:
+	工作站名:	WIN-LBRDN7PCEGG
+	源网络地址:	127.0.0.1
+	源端口:		0
+
+详细身份验证信息:
+	登录进程:		User32 
+	身份验证数据包:	Negotiate
+	传递服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+登录请求失败时在尝试访问的计算机上生成此事件。
+
+“使用者”字段指明本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指明发生的登录的种类。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“进程信息”字段表明系统上的哪个帐户和进程请求了登录。
+
+“网络信息”字段指明远程登录请求来自哪里。“工作站名”并非总是可用，而且在某些情况下可能会留为空白。
+
+“身份验证信息”字段提供关于此特定登录请求的详细信息。
+	-“传递服务”指明哪些直接服务参与了此登录请求。
+	-“数据包名”指明在 NTLM 协议之间使用了哪些子协议。
+	-“密钥长度”指明生成的会话密钥的长度。如果没有请求会话密钥，则此字段为 0。"
+审核失败,2024/9/1 21:46:05,Microsoft-Windows-Security-Auditing,4625,Logon,"帐户登录失败。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录类型:			2
+
+登录失败的帐户:
+	安全 ID:		NULL SID
+	帐户名:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+
+失败信息:
+	失败原因:		未知用户名或密码错误。
+	状态:			0xC000006D
+	子状态:		0xC000006A
+
+进程信息:
+	调用方进程 ID:	0x3b0
+	调用方进程名:	C:\Windows\System32\svchost.exe
+
+网络信息:
+	工作站名:	WIN-LBRDN7PCEGG
+	源网络地址:	127.0.0.1
+	源端口:		0
+
+详细身份验证信息:
+	登录进程:		User32 
+	身份验证数据包:	Negotiate
+	传递服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+登录请求失败时在尝试访问的计算机上生成此事件。
+
+“使用者”字段指明本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指明发生的登录的种类。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“进程信息”字段表明系统上的哪个帐户和进程请求了登录。
+
+“网络信息”字段指明远程登录请求来自哪里。“工作站名”并非总是可用，而且在某些情况下可能会留为空白。
+
+“身份验证信息”字段提供关于此特定登录请求的详细信息。
+	-“传递服务”指明哪些直接服务参与了此登录请求。
+	-“数据包名”指明在 NTLM 协议之间使用了哪些子协议。
+	-“密钥长度”指明生成的会话密钥的长度。如果没有请求会话密钥，则此字段为 0。"
+审核成功,2024/9/1 21:46:03,Microsoft-Windows-Security-Auditing,4798,User Account Management,"已枚举用户的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+用户:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名称:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+
+进程信息:
+	进程 ID:		0x18bc
+	进程名称:		C:\Windows\System32\LogonUI.exe"
+审核成功,2024/9/1 21:45:58,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		Window Manager\DWM-2
+	帐户名:		DWM-2
+	帐户域:		Window Manager
+	登录 ID:		0xC817E1
+
+特权:		SeAssignPrimaryTokenPrivilege
+			SeAuditPrivilege"
+审核成功,2024/9/1 21:45:58,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		Window Manager\DWM-2
+	帐户名:		DWM-2
+	帐户域:		Window Manager
+	登录 ID:		0xC817D0
+
+特权:		SeAssignPrimaryTokenPrivilege
+			SeAuditPrivilege
+			SeImpersonatePrivilege"
+审核成功,2024/9/1 21:45:58,Microsoft-Windows-Security-Auditing,4627,Group Membership,"组成员身份信息。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录类型:			2
+
+新登录:
+	安全 ID:		Window Manager\DWM-2
+	帐户名称:		DWM-2
+	帐户域:		Window Manager
+	登录 ID:		0xC817E1
+
+事件顺序:		1/1
+
+组成员身份:			
+		Mandatory Label\Medium Mandatory Level
+		Everyone
+		BUILTIN\Users
+		NT AUTHORITY\INTERACTIVE
+		CONSOLE LOGON
+		NT AUTHORITY\Authenticated Users
+		NT AUTHORITY\This Organization
+		LOCAL SERVICE
+		LOCAL
+		Window Manager\Window Manager Group
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+配置审计组成员身份子类别时，将生成此事件。可以使用“登录 ID”字段，将此事件与相应的用户登录事件以及在此登录会话期间生成的任何其他安全审核事件相关联。"
+审核成功,2024/9/1 21:45:58,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		2
+	受限制的管理员模式:	-
+	虚拟帐户:		是
+	提升的令牌:		否
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		Window Manager\DWM-2
+	帐户名称:		DWM-2
+	帐户域:		Window Manager
+	登录 ID:		0xC817E1
+	链接的登录 ID:		0xC817D0
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0xffc
+	进程名称:		C:\Windows\System32\winlogon.exe
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		Advapi  
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 21:45:58,Microsoft-Windows-Security-Auditing,4627,Group Membership,"组成员身份信息。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录类型:			2
+
+新登录:
+	安全 ID:		Window Manager\DWM-2
+	帐户名称:		DWM-2
+	帐户域:		Window Manager
+	登录 ID:		0xC817D0
+
+事件顺序:		1/1
+
+组成员身份:			
+		Mandatory Label\System Mandatory Level
+		Everyone
+		BUILTIN\Users
+		NT AUTHORITY\INTERACTIVE
+		CONSOLE LOGON
+		NT AUTHORITY\Authenticated Users
+		NT AUTHORITY\This Organization
+		LOCAL SERVICE
+		LOCAL
+		Window Manager\Window Manager Group
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+配置审计组成员身份子类别时，将生成此事件。可以使用“登录 ID”字段，将此事件与相应的用户登录事件以及在此登录会话期间生成的任何其他安全审核事件相关联。"
+审核成功,2024/9/1 21:45:58,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		2
+	受限制的管理员模式:	-
+	虚拟帐户:		是
+	提升的令牌:		是
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		Window Manager\DWM-2
+	帐户名称:		DWM-2
+	帐户域:		Window Manager
+	登录 ID:		0xC817D0
+	链接的登录 ID:		0xC817E1
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0xffc
+	进程名称:		C:\Windows\System32\winlogon.exe
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		Advapi  
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 21:45:58,Microsoft-Windows-Security-Auditing,4648,Logon,"试图使用显式凭据登录。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+使用了哪个帐户的凭据:
+	帐户名:		DWM-2
+	帐户域:		Window Manager
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+目标服务器:
+	目标服务器名:	localhost
+	附加信息:	localhost
+
+进程信息:
+	进程 ID:		0xffc
+	进程名:		C:\Windows\System32\winlogon.exe
+
+网络信息:
+	网络地址:	-
+	端口:			-
+
+在进程尝试通过显式指定帐户的凭据来登录该帐户时生成此事件。这通常发生在批量类型的配置中(例如计划任务) 或者使用 RUNAS 命令时。"
+审核成功,2024/9/1 21:45:58,Microsoft-Windows-Security-Auditing,4634,Logoff,"已注销帐户。
+
+使用者:
+	安全 ID:		Window Manager\DWM-1
+	帐户名:		DWM-1
+	帐户域:		Window Manager
+	登录 ID:		0x1442F
+
+登录类型:			2
+
+在登录会话被破坏时生成此事件。可以使用登录 ID 值将它和一个登录事件准确关联起来。在同一台计算机上重新启动的区间中，登录 ID 是唯一的。"
+审核成功,2024/9/1 21:45:58,Microsoft-Windows-Security-Auditing,4634,Logoff,"已注销帐户。
+
+使用者:
+	安全 ID:		Window Manager\DWM-1
+	帐户名:		DWM-1
+	帐户域:		Window Manager
+	登录 ID:		0x1444C
+
+登录类型:			2
+
+在登录会话被破坏时生成此事件。可以使用登录 ID 值将它和一个登录事件准确关联起来。在同一台计算机上重新启动的区间中，登录 ID 是唯一的。"
+审核成功,2024/9/1 21:45:58,Microsoft-Windows-Security-Auditing,4647,Logoff,"用户启动的注销:
+
+使用者:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名称:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+	登录 ID:		0xA400B
+
+启动注销时，将生成此事件。以后不会再发生用户启动的活动。此事件可以解释为注销事件。"
+审核成功,2024/9/1 21:45:40,Microsoft-Windows-Security-Auditing,4719,Audit Policy Change,"已更改系统审核策略。
+
+使用者:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+	登录 ID:		0xA400B
+
+审核策略更改:
+	类别:		登录/注销
+	子类别:		组成员身份
+	子类别 GUID:	{0CCE9249-69AE-11D9-BED3-505054503030}
+	更改:		添加成功, 添加失败"
+审核成功,2024/9/1 21:45:40,Microsoft-Windows-Security-Auditing,4719,Audit Policy Change,"已更改系统审核策略。
+
+使用者:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+	登录 ID:		0xA400B
+
+审核策略更改:
+	类别:		登录/注销
+	子类别:		用户/设备声明
+	子类别 GUID:	{0CCE9247-69AE-11D9-BED3-505054503030}
+	更改:		添加成功, 添加失败"
+审核成功,2024/9/1 21:45:40,Microsoft-Windows-Security-Auditing,4719,Audit Policy Change,"已更改系统审核策略。
+
+使用者:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+	登录 ID:		0xA400B
+
+审核策略更改:
+	类别:		登录/注销
+	子类别:		其他登录/注销事件
+	子类别 GUID:	{0CCE921C-69AE-11D9-BED3-505054503030}
+	更改:		添加成功, 添加失败"
+审核成功,2024/9/1 21:45:40,Microsoft-Windows-Security-Auditing,4719,Audit Policy Change,"已更改系统审核策略。
+
+使用者:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+	登录 ID:		0xA400B
+
+审核策略更改:
+	类别:		登录/注销
+	子类别:		IPsec 扩展模式
+	子类别 GUID:	{0CCE921A-69AE-11D9-BED3-505054503030}
+	更改:		添加成功, 添加失败"
+审核成功,2024/9/1 21:45:40,Microsoft-Windows-Security-Auditing,4719,Audit Policy Change,"已更改系统审核策略。
+
+使用者:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+	登录 ID:		0xA400B
+
+审核策略更改:
+	类别:		登录/注销
+	子类别:		IPsec 快速模式
+	子类别 GUID:	{0CCE9219-69AE-11D9-BED3-505054503030}
+	更改:		添加成功, 添加失败"
+审核成功,2024/9/1 21:45:40,Microsoft-Windows-Security-Auditing,4719,Audit Policy Change,"已更改系统审核策略。
+
+使用者:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+	登录 ID:		0xA400B
+
+审核策略更改:
+	类别:		登录/注销
+	子类别:		特殊登录
+	子类别 GUID:	{0CCE921B-69AE-11D9-BED3-505054503030}
+	更改:		添加失败"
+审核成功,2024/9/1 21:45:40,Microsoft-Windows-Security-Auditing,4719,Audit Policy Change,"已更改系统审核策略。
+
+使用者:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+	登录 ID:		0xA400B
+
+审核策略更改:
+	类别:		登录/注销
+	子类别:		IPsec 主模式
+	子类别 GUID:	{0CCE9218-69AE-11D9-BED3-505054503030}
+	更改:		添加成功, 添加失败"
+审核成功,2024/9/1 21:45:40,Microsoft-Windows-Security-Auditing,4719,Audit Policy Change,"已更改系统审核策略。
+
+使用者:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+	登录 ID:		0xA400B
+
+审核策略更改:
+	类别:		登录/注销
+	子类别:		帐户锁定
+	子类别 GUID:	{0CCE9217-69AE-11D9-BED3-505054503030}
+	更改:		添加失败"
+审核成功,2024/9/1 21:45:40,Microsoft-Windows-Security-Auditing,4719,Audit Policy Change,"已更改系统审核策略。
+
+使用者:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+	登录 ID:		0xA400B
+
+审核策略更改:
+	类别:		登录/注销
+	子类别:		注销
+	子类别 GUID:	{0CCE9216-69AE-11D9-BED3-505054503030}
+	更改:		添加失败"
+审核成功,2024/9/1 21:42:20,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+
+特权:		SeAssignPrimaryTokenPrivilege
+			SeTcbPrivilege
+			SeSecurityPrivilege
+			SeTakeOwnershipPrivilege
+			SeLoadDriverPrivilege
+			SeBackupPrivilege
+			SeRestorePrivilege
+			SeDebugPrivilege
+			SeAuditPrivilege
+			SeSystemEnvironmentPrivilege
+			SeImpersonatePrivilege
+			SeDelegateSessionUserImpersonatePrivilege"
+审核成功,2024/9/1 21:42:20,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		5
+	受限制的管理员模式:	-
+	虚拟帐户:		否
+	提升的令牌:		是
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		SYSTEM
+	帐户名称:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+	链接的登录 ID:		0x0
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x2b0
+	进程名称:		C:\Windows\System32\services.exe
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		Advapi  
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 21:42:13,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+
+特权:		SeAssignPrimaryTokenPrivilege
+			SeTcbPrivilege
+			SeSecurityPrivilege
+			SeTakeOwnershipPrivilege
+			SeLoadDriverPrivilege
+			SeBackupPrivilege
+			SeRestorePrivilege
+			SeDebugPrivilege
+			SeAuditPrivilege
+			SeSystemEnvironmentPrivilege
+			SeImpersonatePrivilege
+			SeDelegateSessionUserImpersonatePrivilege"
+审核成功,2024/9/1 21:42:13,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		5
+	受限制的管理员模式:	-
+	虚拟帐户:		否
+	提升的令牌:		是
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		SYSTEM
+	帐户名称:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+	链接的登录 ID:		0x0
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x2b0
+	进程名称:		C:\Windows\System32\services.exe
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		Advapi  
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 21:41:15,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Backup Operators
+	组名:		Backup Operators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0x3b0
+	进程名称:		C:\Windows\System32\svchost.exe"
+审核成功,2024/9/1 21:41:15,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Administrators
+	组名:		Administrators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0x3b0
+	进程名称:		C:\Windows\System32\svchost.exe"
+审核成功,2024/9/1 21:31:56,Microsoft-Windows-Security-Auditing,4798,User Account Management,"已枚举用户的本地组成员身份。
+
+使用者:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名称:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+	登录 ID:		0xA400B
+
+用户:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名称:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+
+进程信息:
+	进程 ID:		0x1314
+	进程名称:		C:\Users\Administrator\AppData\Local\Google\Chrome\Application\chrome.exe"
+审核成功,2024/9/1 21:30:46,Microsoft-Windows-Security-Auditing,4798,User Account Management,"已枚举用户的本地组成员身份。
+
+使用者:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名称:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+	登录 ID:		0xA400B
+
+用户:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名称:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+
+进程信息:
+	进程 ID:		0x34c
+	进程名称:		C:\Windows\System32\mmc.exe"
+审核成功,2024/9/1 21:30:46,Microsoft-Windows-Security-Auditing,4798,User Account Management,"已枚举用户的本地组成员身份。
+
+使用者:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名称:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+	登录 ID:		0xA400B
+
+用户:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名称:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+
+进程信息:
+	进程 ID:		0xed0
+	进程名称:		C:\Windows\explorer.exe"
+审核成功,2024/9/1 21:30:35,Microsoft-Windows-Security-Auditing,4798,User Account Management,"已枚举用户的本地组成员身份。
+
+使用者:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名称:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+	登录 ID:		0xA400B
+
+用户:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名称:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+
+进程信息:
+	进程 ID:		0x34c
+	进程名称:		C:\Windows\System32\mmc.exe"
+审核成功,2024/9/1 21:24:49,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Guests
+	组名:		Guests
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0x1b50
+	进程名称:		C:\Windows\System32\CompatTelRunner.exe"
+审核成功,2024/9/1 21:24:49,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Users
+	组名:		Users
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0x1b50
+	进程名称:		C:\Windows\System32\CompatTelRunner.exe"
+审核成功,2024/9/1 21:24:49,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Administrators
+	组名:		Administrators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0x1b50
+	进程名称:		C:\Windows\System32\CompatTelRunner.exe"
+审核成功,2024/9/1 21:24:49,Microsoft-Windows-Security-Auditing,4798,User Account Management,"已枚举用户的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+用户:
+	安全 ID:		WIN-LBRDN7PCEGG\Guest
+	帐户名称:		Guest
+	帐户域:		WIN-LBRDN7PCEGG
+
+进程信息:
+	进程 ID:		0x1b50
+	进程名称:		C:\Windows\System32\CompatTelRunner.exe"
+审核成功,2024/9/1 21:24:49,Microsoft-Windows-Security-Auditing,4798,User Account Management,"已枚举用户的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+用户:
+	安全 ID:		WIN-LBRDN7PCEGG\DefaultAccount
+	帐户名称:		DefaultAccount
+	帐户域:		WIN-LBRDN7PCEGG
+
+进程信息:
+	进程 ID:		0x1b50
+	进程名称:		C:\Windows\System32\CompatTelRunner.exe"
+审核成功,2024/9/1 21:24:49,Microsoft-Windows-Security-Auditing,4798,User Account Management,"已枚举用户的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+用户:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名称:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+
+进程信息:
+	进程 ID:		0x1b50
+	进程名称:		C:\Windows\System32\CompatTelRunner.exe"
+审核成功,2024/9/1 21:24:42,Microsoft-Windows-Security-Auditing,4798,User Account Management,"已枚举用户的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+用户:
+	安全 ID:		WIN-LBRDN7PCEGG\Guest
+	帐户名称:		Guest
+	帐户域:		WIN-LBRDN7PCEGG
+
+进程信息:
+	进程 ID:		0x13fc
+	进程名称:		C:\Windows\System32\CompatTelRunner.exe"
+审核成功,2024/9/1 21:23:10,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+
+特权:		SeAssignPrimaryTokenPrivilege
+			SeTcbPrivilege
+			SeSecurityPrivilege
+			SeTakeOwnershipPrivilege
+			SeLoadDriverPrivilege
+			SeBackupPrivilege
+			SeRestorePrivilege
+			SeDebugPrivilege
+			SeAuditPrivilege
+			SeSystemEnvironmentPrivilege
+			SeImpersonatePrivilege
+			SeDelegateSessionUserImpersonatePrivilege"
+审核成功,2024/9/1 21:23:10,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		5
+	受限制的管理员模式:	-
+	虚拟帐户:		否
+	提升的令牌:		是
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		SYSTEM
+	帐户名称:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+	链接的登录 ID:		0x0
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x2b0
+	进程名称:		C:\Windows\System32\services.exe
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		Advapi  
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 21:23:03,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	1d8dba25-8b9d-07a4-de99-3533ac1ce12b
+	密钥类型:	用户密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 21:23:03,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	1d8dba25-8b9d-07a4-de99-3533ac1ce12b
+	密钥类型:	用户密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\SystemKeys\e6be2486013698ef18d57d20553cf383_1d72cab9-a076-4dc6-8f71-16ad2b5fa5e9
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 21:23:00,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+
+特权:		SeAssignPrimaryTokenPrivilege
+			SeTcbPrivilege
+			SeSecurityPrivilege
+			SeTakeOwnershipPrivilege
+			SeLoadDriverPrivilege
+			SeBackupPrivilege
+			SeRestorePrivilege
+			SeDebugPrivilege
+			SeAuditPrivilege
+			SeSystemEnvironmentPrivilege
+			SeImpersonatePrivilege
+			SeDelegateSessionUserImpersonatePrivilege"
+审核成功,2024/9/1 21:23:00,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		5
+	受限制的管理员模式:	-
+	虚拟帐户:		否
+	提升的令牌:		是
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		SYSTEM
+	帐户名称:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+	链接的登录 ID:		0x0
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x2b0
+	进程名称:		C:\Windows\System32\services.exe
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		Advapi  
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 21:23:00,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+
+特权:		SeAssignPrimaryTokenPrivilege
+			SeTcbPrivilege
+			SeSecurityPrivilege
+			SeTakeOwnershipPrivilege
+			SeLoadDriverPrivilege
+			SeBackupPrivilege
+			SeRestorePrivilege
+			SeDebugPrivilege
+			SeAuditPrivilege
+			SeSystemEnvironmentPrivilege
+			SeImpersonatePrivilege
+			SeDelegateSessionUserImpersonatePrivilege"
+审核成功,2024/9/1 21:23:00,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		5
+	受限制的管理员模式:	-
+	虚拟帐户:		否
+	提升的令牌:		是
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		SYSTEM
+	帐户名称:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+	链接的登录 ID:		0x0
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x2b0
+	进程名称:		C:\Windows\System32\services.exe
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		Advapi  
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 21:19:29,Microsoft-Windows-Security-Auditing,4616,Security State Change,"更改了系统时间。
+
+使用者:
+	安全 ID:	SYSTEM
+	帐户名:		WIN-LBRDN7PCEGG$
+	帐户域:	WORKGROUP
+	登录 ID:	0x3E7
+
+进程信息:
+	进程 ID:	0x7d8
+	名称:		C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
+
+以前的时间:		‎2024‎-‎09‎-‎01T09:42:59.738870500Z
+新时间:		‎2024‎-‎09‎-‎01T13:19:29.917000000Z
+
+当更改系统时间时会生成此事件。这对于 Windows 时间服务属正常情况，该服务以系统特权运行，定期更改系统时间。其他的系统时间更改意味着对计算机的破坏。"
+审核成功,2024/9/1 17:35:47,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Backup Operators
+	组名:		Backup Operators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0x3b0
+	进程名称:		C:\Windows\System32\svchost.exe"
+审核成功,2024/9/1 17:35:47,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Administrators
+	组名:		Administrators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0x3b0
+	进程名称:		C:\Windows\System32\svchost.exe"
+审核成功,2024/9/1 17:35:47,Microsoft-Windows-Security-Auditing,5059,Other System Events,"密钥迁移操作。
+
+使用者:
+	安全 ID:		LOCAL SERVICE
+	帐户名称:		LOCAL SERVICE
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E5
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	ECDSA_P256
+	密钥名称:	Microsoft Connected Devices Platform device certificate
+	密钥类型:	用户密钥。
+
+其他信息:
+	操作:	导出永久加密密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:35:47,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		LOCAL SERVICE
+	帐户名称:		LOCAL SERVICE
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E5
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	ECDSA_P256
+	密钥名称:	Microsoft Connected Devices Platform device certificate
+	密钥类型:	用户密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:35:47,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		LOCAL SERVICE
+	帐户名称:		LOCAL SERVICE
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E5
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	Microsoft Connected Devices Platform device certificate
+	密钥类型:	用户密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\Windows\ServiceProfiles\LocalService\AppData\Roaming\Microsoft\Crypto\Keys\de7cf8a7901d2ad13e5c67c29e5d1662_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:49,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:49,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:49,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:49,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:49,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:49,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:48,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:48,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:48,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:48,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:48,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:48,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:48,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:48,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:48,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:48,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:47,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:18,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	1d8dba25-8b9d-07a4-de99-3533ac1ce12b
+	密钥类型:	用户密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:18,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	1d8dba25-8b9d-07a4-de99-3533ac1ce12b
+	密钥类型:	用户密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\SystemKeys\e6be2486013698ef18d57d20553cf383_1d72cab9-a076-4dc6-8f71-16ad2b5fa5e9
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:17,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Administrators
+	组名:		Administrators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0x3b0
+	进程名称:		C:\Windows\System32\svchost.exe"
+审核成功,2024/9/1 17:34:17,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+	登录 ID:		0xA400B
+
+特权:		SeSecurityPrivilege
+			SeTakeOwnershipPrivilege
+			SeLoadDriverPrivilege
+			SeBackupPrivilege
+			SeRestorePrivilege
+			SeDebugPrivilege
+			SeSystemEnvironmentPrivilege
+			SeImpersonatePrivilege
+			SeDelegateSessionUserImpersonatePrivilege"
+审核成功,2024/9/1 17:34:17,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		2
+	受限制的管理员模式:	-
+	虚拟帐户:		否
+	提升的令牌:		是
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名称:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+	登录 ID:		0xA400B
+	链接的登录 ID:		0x0
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x3b0
+	进程名称:		C:\Windows\System32\svchost.exe
+
+网络信息:
+	工作站名称:	WIN-LBRDN7PCEGG
+	源网络地址:	127.0.0.1
+	源端口:		0
+
+详细的身份验证信息:
+	登录进程:		User32 
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 17:34:17,Microsoft-Windows-Security-Auditing,4648,Logon,"试图使用显式凭据登录。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+使用了哪个帐户的凭据:
+	帐户名:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+目标服务器:
+	目标服务器名:	localhost
+	附加信息:	localhost
+
+进程信息:
+	进程 ID:		0x3b0
+	进程名:		C:\Windows\System32\svchost.exe
+
+网络信息:
+	网络地址:	127.0.0.1
+	端口:			0
+
+在进程尝试通过显式指定帐户的凭据来登录该帐户时生成此事件。这通常发生在批量类型的配置中(例如计划任务) 或者使用 RUNAS 命令时。"
+审核成功,2024/9/1 17:34:17,Microsoft-Windows-Security-Auditing,4776,Credential Validation,"计算机试图验证帐户的凭据。
+
+验证包:	MICROSOFT_AUTHENTICATION_PACKAGE_V1_0
+登录帐户:	Administrator
+源工作站:	WIN-LBRDN7PCEGG
+错误代码:	0x0"
+审核成功,2024/9/1 17:34:10,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	1d8dba25-8b9d-07a4-de99-3533ac1ce12b
+	密钥类型:	用户密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:10,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	1d8dba25-8b9d-07a4-de99-3533ac1ce12b
+	密钥类型:	用户密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\SystemKeys\e6be2486013698ef18d57d20553cf383_1d72cab9-a076-4dc6-8f71-16ad2b5fa5e9
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/9/1 17:34:03,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+
+特权:		SeAssignPrimaryTokenPrivilege
+			SeTcbPrivilege
+			SeSecurityPrivilege
+			SeTakeOwnershipPrivilege
+			SeLoadDriverPrivilege
+			SeBackupPrivilege
+			SeRestorePrivilege
+			SeDebugPrivilege
+			SeAuditPrivilege
+			SeSystemEnvironmentPrivilege
+			SeImpersonatePrivilege
+			SeDelegateSessionUserImpersonatePrivilege"
+审核成功,2024/9/1 17:34:03,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		5
+	受限制的管理员模式:	-
+	虚拟帐户:		否
+	提升的令牌:		是
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		SYSTEM
+	帐户名称:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+	链接的登录 ID:		0x0
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x2b0
+	进程名称:		C:\Windows\System32\services.exe
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		Advapi  
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 17:33:46,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Backup Operators
+	组名:		Backup Operators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0xba4
+	进程名称:		C:\Windows\System32\VSSVC.exe"
+审核成功,2024/9/1 17:33:46,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Administrators
+	组名:		Administrators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0xba4
+	进程名称:		C:\Windows\System32\VSSVC.exe"
+审核成功,2024/9/1 17:33:46,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Backup Operators
+	组名:		Backup Operators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0xba4
+	进程名称:		C:\Windows\System32\VSSVC.exe"
+审核成功,2024/9/1 17:33:46,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Administrators
+	组名:		Administrators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0xba4
+	进程名称:		C:\Windows\System32\VSSVC.exe"
+审核成功,2024/9/1 17:33:46,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Backup Operators
+	组名:		Backup Operators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0xba4
+	进程名称:		C:\Windows\System32\VSSVC.exe"
+审核成功,2024/9/1 17:33:46,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Administrators
+	组名:		Administrators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0xba4
+	进程名称:		C:\Windows\System32\VSSVC.exe"
+审核成功,2024/9/1 17:33:46,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Backup Operators
+	组名:		Backup Operators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0xba4
+	进程名称:		C:\Windows\System32\VSSVC.exe"
+审核成功,2024/9/1 17:33:46,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Administrators
+	组名:		Administrators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0xba4
+	进程名称:		C:\Windows\System32\VSSVC.exe"
+审核成功,2024/9/1 17:33:46,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+
+特权:		SeAssignPrimaryTokenPrivilege
+			SeTcbPrivilege
+			SeSecurityPrivilege
+			SeTakeOwnershipPrivilege
+			SeLoadDriverPrivilege
+			SeBackupPrivilege
+			SeRestorePrivilege
+			SeDebugPrivilege
+			SeAuditPrivilege
+			SeSystemEnvironmentPrivilege
+			SeImpersonatePrivilege
+			SeDelegateSessionUserImpersonatePrivilege"
+审核成功,2024/9/1 17:33:46,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		5
+	受限制的管理员模式:	-
+	虚拟帐户:		否
+	提升的令牌:		是
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		SYSTEM
+	帐户名称:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+	链接的登录 ID:		0x0
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x2b0
+	进程名称:		C:\Windows\System32\services.exe
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		Advapi  
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 17:33:44,Microsoft-Windows-Security-Auditing,4798,User Account Management,"已枚举用户的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+用户:
+	安全 ID:		WIN-LBRDN7PCEGG\Administrator
+	帐户名称:		Administrator
+	帐户域:		WIN-LBRDN7PCEGG
+
+进程信息:
+	进程 ID:		0x328
+	进程名称:		C:\Windows\System32\LogonUI.exe"
+审核成功,2024/9/1 17:33:42,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+
+特权:		SeAssignPrimaryTokenPrivilege
+			SeTcbPrivilege
+			SeSecurityPrivilege
+			SeTakeOwnershipPrivilege
+			SeLoadDriverPrivilege
+			SeBackupPrivilege
+			SeRestorePrivilege
+			SeDebugPrivilege
+			SeAuditPrivilege
+			SeSystemEnvironmentPrivilege
+			SeImpersonatePrivilege
+			SeDelegateSessionUserImpersonatePrivilege"
+审核成功,2024/9/1 17:33:42,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		5
+	受限制的管理员模式:	-
+	虚拟帐户:		否
+	提升的令牌:		是
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		SYSTEM
+	帐户名称:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+	链接的登录 ID:		0x0
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x2b0
+	进程名称:		C:\Windows\System32\services.exe
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		Advapi  
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 17:33:41,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Backup Operators
+	组名:		Backup Operators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0x3b0
+	进程名称:		C:\Windows\System32\svchost.exe"
+审核成功,2024/9/1 17:33:41,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Administrators
+	组名:		Administrators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0x3b0
+	进程名称:		C:\Windows\System32\svchost.exe"
+审核成功,2024/9/1 17:33:41,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		NULL SID
+	帐户名称:		-
+	帐户域:		-
+	登录 ID:		0x0
+
+登录信息:
+	登录类型:		3
+	受限制的管理员模式:	-
+	虚拟帐户:		否
+	提升的令牌:		否
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		ANONYMOUS LOGON
+	帐户名称:		ANONYMOUS LOGON
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x2028B
+	链接的登录 ID:		0x0
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x0
+	进程名称:		-
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		NtLmSsp 
+	身份验证数据包:	NTLM
+	传递的服务:	-
+	数据包名(仅限 NTLM):	NTLM V1
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 17:33:41,Microsoft-Windows-Security-Auditing,5024,Other System Events,Windows 防火墙服务已成功启动。
+审核成功,2024/9/1 17:33:40,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+
+特权:		SeAssignPrimaryTokenPrivilege
+			SeTcbPrivilege
+			SeSecurityPrivilege
+			SeTakeOwnershipPrivilege
+			SeLoadDriverPrivilege
+			SeBackupPrivilege
+			SeRestorePrivilege
+			SeDebugPrivilege
+			SeAuditPrivilege
+			SeSystemEnvironmentPrivilege
+			SeImpersonatePrivilege
+			SeDelegateSessionUserImpersonatePrivilege"
+审核成功,2024/9/1 17:33:40,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		5
+	受限制的管理员模式:	-
+	虚拟帐户:		否
+	提升的令牌:		是
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		SYSTEM
+	帐户名称:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+	链接的登录 ID:		0x0
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x2b0
+	进程名称:		C:\Windows\System32\services.exe
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		Advapi  
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 17:33:40,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+
+特权:		SeAssignPrimaryTokenPrivilege
+			SeTcbPrivilege
+			SeSecurityPrivilege
+			SeTakeOwnershipPrivilege
+			SeLoadDriverPrivilege
+			SeBackupPrivilege
+			SeRestorePrivilege
+			SeDebugPrivilege
+			SeAuditPrivilege
+			SeSystemEnvironmentPrivilege
+			SeImpersonatePrivilege
+			SeDelegateSessionUserImpersonatePrivilege"
+审核成功,2024/9/1 17:33:40,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		5
+	受限制的管理员模式:	-
+	虚拟帐户:		否
+	提升的令牌:		是
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		SYSTEM
+	帐户名称:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+	链接的登录 ID:		0x0
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x2b0
+	进程名称:		C:\Windows\System32\services.exe
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		Advapi  
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 17:33:40,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+
+特权:		SeAssignPrimaryTokenPrivilege
+			SeTcbPrivilege
+			SeSecurityPrivilege
+			SeTakeOwnershipPrivilege
+			SeLoadDriverPrivilege
+			SeBackupPrivilege
+			SeRestorePrivilege
+			SeDebugPrivilege
+			SeAuditPrivilege
+			SeSystemEnvironmentPrivilege
+			SeImpersonatePrivilege
+			SeDelegateSessionUserImpersonatePrivilege"
+审核成功,2024/9/1 17:33:40,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		5
+	受限制的管理员模式:	-
+	虚拟帐户:		否
+	提升的令牌:		是
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		SYSTEM
+	帐户名称:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+	链接的登录 ID:		0x0
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x2b0
+	进程名称:		C:\Windows\System32\services.exe
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		Advapi  
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 17:33:40,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		NETWORK SERVICE
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E4
+
+组:
+	安全 ID:		BUILTIN\Backup Operators
+	组名:		Backup Operators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0x4a8
+	进程名称:		C:\Windows\System32\svchost.exe"
+审核成功,2024/9/1 17:33:40,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		NETWORK SERVICE
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E4
+
+组:
+	安全 ID:		BUILTIN\Administrators
+	组名:		Administrators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0x4a8
+	进程名称:		C:\Windows\System32\svchost.exe"
+审核成功,2024/9/1 17:33:40,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+
+特权:		SeAssignPrimaryTokenPrivilege
+			SeTcbPrivilege
+			SeSecurityPrivilege
+			SeTakeOwnershipPrivilege
+			SeLoadDriverPrivilege
+			SeBackupPrivilege
+			SeRestorePrivilege
+			SeDebugPrivilege
+			SeAuditPrivilege
+			SeSystemEnvironmentPrivilege
+			SeImpersonatePrivilege
+			SeDelegateSessionUserImpersonatePrivilege"
+审核成功,2024/9/1 17:33:40,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		5
+	受限制的管理员模式:	-
+	虚拟帐户:		否
+	提升的令牌:		是
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		SYSTEM
+	帐户名称:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+	链接的登录 ID:		0x0
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x2b0
+	进程名称:		C:\Windows\System32\services.exe
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		Advapi  
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 17:33:40,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+
+特权:		SeAssignPrimaryTokenPrivilege
+			SeTcbPrivilege
+			SeSecurityPrivilege
+			SeTakeOwnershipPrivilege
+			SeLoadDriverPrivilege
+			SeBackupPrivilege
+			SeRestorePrivilege
+			SeDebugPrivilege
+			SeAuditPrivilege
+			SeSystemEnvironmentPrivilege
+			SeImpersonatePrivilege
+			SeDelegateSessionUserImpersonatePrivilege"
+审核成功,2024/9/1 17:33:40,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		5
+	受限制的管理员模式:	-
+	虚拟帐户:		否
+	提升的令牌:		是
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		SYSTEM
+	帐户名称:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+	链接的登录 ID:		0x0
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x2b0
+	进程名称:		C:\Windows\System32\services.exe
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		Advapi  
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 17:33:40,Microsoft-Windows-Security-Auditing,5033,Other System Events,Windows 防火墙驱动程序已成功启动。
+审核成功,2024/9/1 17:33:39,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		Window Manager\DWM-1
+	帐户名:		DWM-1
+	帐户域:		Window Manager
+	登录 ID:		0x1444C
+
+特权:		SeAssignPrimaryTokenPrivilege
+			SeAuditPrivilege"
+审核成功,2024/9/1 17:33:39,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		Window Manager\DWM-1
+	帐户名:		DWM-1
+	帐户域:		Window Manager
+	登录 ID:		0x1442F
+
+特权:		SeAssignPrimaryTokenPrivilege
+			SeAuditPrivilege
+			SeImpersonatePrivilege"
+审核成功,2024/9/1 17:33:39,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		2
+	受限制的管理员模式:	-
+	虚拟帐户:		是
+	提升的令牌:		否
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		Window Manager\DWM-1
+	帐户名称:		DWM-1
+	帐户域:		Window Manager
+	登录 ID:		0x1444C
+	链接的登录 ID:		0x1442F
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x27c
+	进程名称:		C:\Windows\System32\winlogon.exe
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		Advapi  
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 17:33:39,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		2
+	受限制的管理员模式:	-
+	虚拟帐户:		是
+	提升的令牌:		是
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		Window Manager\DWM-1
+	帐户名称:		DWM-1
+	帐户域:		Window Manager
+	登录 ID:		0x1442F
+	链接的登录 ID:		0x1444C
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x27c
+	进程名称:		C:\Windows\System32\winlogon.exe
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		Advapi  
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 17:33:39,Microsoft-Windows-Security-Auditing,4648,Logon,"试图使用显式凭据登录。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+使用了哪个帐户的凭据:
+	帐户名:		DWM-1
+	帐户域:		Window Manager
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+目标服务器:
+	目标服务器名:	localhost
+	附加信息:	localhost
+
+进程信息:
+	进程 ID:		0x27c
+	进程名:		C:\Windows\System32\winlogon.exe
+
+网络信息:
+	网络地址:	-
+	端口:			-
+
+在进程尝试通过显式指定帐户的凭据来登录该帐户时生成此事件。这通常发生在批量类型的配置中(例如计划任务) 或者使用 RUNAS 命令时。"
+审核成功,2024/9/1 17:33:39,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+
+特权:		SeAssignPrimaryTokenPrivilege
+			SeTcbPrivilege
+			SeSecurityPrivilege
+			SeTakeOwnershipPrivilege
+			SeLoadDriverPrivilege
+			SeBackupPrivilege
+			SeRestorePrivilege
+			SeDebugPrivilege
+			SeAuditPrivilege
+			SeSystemEnvironmentPrivilege
+			SeImpersonatePrivilege
+			SeDelegateSessionUserImpersonatePrivilege"
+审核成功,2024/9/1 17:33:39,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		5
+	受限制的管理员模式:	-
+	虚拟帐户:		否
+	提升的令牌:		是
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		SYSTEM
+	帐户名称:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+	链接的登录 ID:		0x0
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x2b0
+	进程名称:		C:\Windows\System32\services.exe
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		Advapi  
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 17:33:39,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		LOCAL SERVICE
+	帐户名:		LOCAL SERVICE
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E5
+
+特权:		SeAssignPrimaryTokenPrivilege
+			SeAuditPrivilege
+			SeImpersonatePrivilege"
+审核成功,2024/9/1 17:33:39,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		5
+	受限制的管理员模式:	-
+	虚拟帐户:		否
+	提升的令牌:		是
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		LOCAL SERVICE
+	帐户名称:		LOCAL SERVICE
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E5
+	链接的登录 ID:		0x0
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x2b0
+	进程名称:		C:\Windows\System32\services.exe
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		Advapi  
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 17:33:39,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+
+特权:		SeAssignPrimaryTokenPrivilege
+			SeTcbPrivilege
+			SeSecurityPrivilege
+			SeTakeOwnershipPrivilege
+			SeLoadDriverPrivilege
+			SeBackupPrivilege
+			SeRestorePrivilege
+			SeDebugPrivilege
+			SeAuditPrivilege
+			SeSystemEnvironmentPrivilege
+			SeImpersonatePrivilege
+			SeDelegateSessionUserImpersonatePrivilege"
+审核成功,2024/9/1 17:33:39,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		5
+	受限制的管理员模式:	-
+	虚拟帐户:		否
+	提升的令牌:		是
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		SYSTEM
+	帐户名称:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+	链接的登录 ID:		0x0
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x2b0
+	进程名称:		C:\Windows\System32\services.exe
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		Advapi  
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 17:33:39,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		NETWORK SERVICE
+	帐户名:		NETWORK SERVICE
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E4
+
+特权:		SeAssignPrimaryTokenPrivilege
+			SeAuditPrivilege
+			SeImpersonatePrivilege"
+审核成功,2024/9/1 17:33:39,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		5
+	受限制的管理员模式:	-
+	虚拟帐户:		否
+	提升的令牌:		是
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		NETWORK SERVICE
+	帐户名称:		NETWORK SERVICE
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E4
+	链接的登录 ID:		0x0
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x2b0
+	进程名称:		C:\Windows\System32\services.exe
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		Advapi  
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 17:33:39,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+
+特权:		SeAssignPrimaryTokenPrivilege
+			SeTcbPrivilege
+			SeSecurityPrivilege
+			SeTakeOwnershipPrivilege
+			SeLoadDriverPrivilege
+			SeBackupPrivilege
+			SeRestorePrivilege
+			SeDebugPrivilege
+			SeAuditPrivilege
+			SeSystemEnvironmentPrivilege
+			SeImpersonatePrivilege
+			SeDelegateSessionUserImpersonatePrivilege"
+审核成功,2024/9/1 17:33:39,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		5
+	受限制的管理员模式:	-
+	虚拟帐户:		否
+	提升的令牌:		是
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		SYSTEM
+	帐户名称:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+	链接的登录 ID:		0x0
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x2b0
+	进程名称:		C:\Windows\System32\services.exe
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		Advapi  
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 17:33:39,Microsoft-Windows-Security-Auditing,4902,Audit Policy Change,"已创建每用户审核策略表。
+
+元素的数量:	0
+策略 ID:	0xBFBB"
+审核成功,2024/9/1 17:33:39,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		NULL SID
+	帐户名称:		-
+	帐户域:		-
+	登录 ID:		0x0
+
+登录信息:
+	登录类型:		0
+	受限制的管理员模式:	-
+	虚拟帐户:		否
+	提升的令牌:		是
+
+模拟级别:		-
+
+新登录:
+	安全 ID:		SYSTEM
+	帐户名称:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+	链接的登录 ID:		0x0
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x4
+	进程名称:		
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		-
+	身份验证数据包:	-
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/9/1 17:33:39,Microsoft-Windows-Security-Auditing,4608,Security State Change,"Windows 正在启动。
+
+当 LSASS.EXE 启动且审核子系统进行初始化时，会记录此事件。"
+审核成功,2024/9/1 17:33:39,Microsoft-Windows-Security-Auditing,4688,Process Creation,"已创建新进程。
+
+创建者主题:
+	安全 ID:		SYSTEM
+	帐户名:		-
+	帐户域:		-
+	登录 ID:		0x3E7
+
+目标主题:
+	安全 ID:		NULL SID
+	帐户名:		-
+	帐户域:		-
+	登录 ID:		0x0
+
+进程信息:
+	新进程 ID:		0x2b8
+	新进程名称:	C:\Windows\System32\lsass.exe
+	令牌提升类型:	%%1936
+	强制性标签:		Mandatory Label\System Mandatory Level
+	创建者进程 ID:	0x228
+	创建者进程名称:	C:\Windows\System32\wininit.exe
+	进程命令行:	
+
+“令牌提升类型”表示根据用户帐户控制策略分配给新进程的令牌类型。
+
+类型 1 是未删除特权或未禁用组的完全令牌。完全令牌仅在禁用了用户帐户控制或者用户是内置管理员帐户或服务帐户的情况下使用。
+
+类型 2 是未删除特权或未禁用组的提升令牌。当启用了用户帐户控制并且用户选择使用“以管理员身份运行”选项启动程序时，会使用提升令牌。当应用程序配置为始终需要管理特权或始终需要最高特权并且用户是管理员组的成员时，也会使用提升令牌。
+
+类型 3 是删除了管理特权并禁用了管理组的受限令牌。当启用了用户帐户控制，应用程序不需要管理特权并且用户未选择使用“以管理员身份运行”选项启动程序时，会使用受限令牌。"
+审核成功,2024/9/1 17:33:39,Microsoft-Windows-Security-Auditing,4688,Process Creation,"已创建新进程。
+
+创建者主题:
+	安全 ID:		SYSTEM
+	帐户名:		-
+	帐户域:		-
+	登录 ID:		0x3E7
+
+目标主题:
+	安全 ID:		NULL SID
+	帐户名:		-
+	帐户域:		-
+	登录 ID:		0x0
+
+进程信息:
+	新进程 ID:		0x2b0
+	新进程名称:	C:\Windows\System32\services.exe
+	令牌提升类型:	%%1936
+	强制性标签:		Mandatory Label\System Mandatory Level
+	创建者进程 ID:	0x228
+	创建者进程名称:	C:\Windows\System32\wininit.exe
+	进程命令行:	
+
+“令牌提升类型”表示根据用户帐户控制策略分配给新进程的令牌类型。
+
+类型 1 是未删除特权或未禁用组的完全令牌。完全令牌仅在禁用了用户帐户控制或者用户是内置管理员帐户或服务帐户的情况下使用。
+
+类型 2 是未删除特权或未禁用组的提升令牌。当启用了用户帐户控制并且用户选择使用“以管理员身份运行”选项启动程序时，会使用提升令牌。当应用程序配置为始终需要管理特权或始终需要最高特权并且用户是管理员组的成员时，也会使用提升令牌。
+
+类型 3 是删除了管理特权并禁用了管理组的受限令牌。当启用了用户帐户控制，应用程序不需要管理特权并且用户未选择使用“以管理员身份运行”选项启动程序时，会使用受限令牌。"
+审核成功,2024/9/1 17:33:38,Microsoft-Windows-Security-Auditing,4688,Process Creation,"已创建新进程。
+
+创建者主题:
+	安全 ID:		SYSTEM
+	帐户名:		-
+	帐户域:		-
+	登录 ID:		0x3E7
+
+目标主题:
+	安全 ID:		NULL SID
+	帐户名:		-
+	帐户域:		-
+	登录 ID:		0x0
+
+进程信息:
+	新进程 ID:		0x27c
+	新进程名称:	C:\Windows\System32\winlogon.exe
+	令牌提升类型:	%%1936
+	强制性标签:		Mandatory Label\System Mandatory Level
+	创建者进程 ID:	0x220
+	创建者进程名称:	C:\Windows\System32\smss.exe
+	进程命令行:	
+
+“令牌提升类型”表示根据用户帐户控制策略分配给新进程的令牌类型。
+
+类型 1 是未删除特权或未禁用组的完全令牌。完全令牌仅在禁用了用户帐户控制或者用户是内置管理员帐户或服务帐户的情况下使用。
+
+类型 2 是未删除特权或未禁用组的提升令牌。当启用了用户帐户控制并且用户选择使用“以管理员身份运行”选项启动程序时，会使用提升令牌。当应用程序配置为始终需要管理特权或始终需要最高特权并且用户是管理员组的成员时，也会使用提升令牌。
+
+类型 3 是删除了管理特权并禁用了管理组的受限令牌。当启用了用户帐户控制，应用程序不需要管理特权并且用户未选择使用“以管理员身份运行”选项启动程序时，会使用受限令牌。"
+审核成功,2024/9/1 17:33:38,Microsoft-Windows-Security-Auditing,4688,Process Creation,"已创建新进程。
+
+创建者主题:
+	安全 ID:		SYSTEM
+	帐户名:		-
+	帐户域:		-
+	登录 ID:		0x3E7
+
+目标主题:
+	安全 ID:		NULL SID
+	帐户名:		-
+	帐户域:		-
+	登录 ID:		0x0
+
+进程信息:
+	新进程 ID:		0x230
+	新进程名称:	C:\Windows\System32\csrss.exe
+	令牌提升类型:	%%1936
+	强制性标签:		Mandatory Label\System Mandatory Level
+	创建者进程 ID:	0x220
+	创建者进程名称:	C:\Windows\System32\smss.exe
+	进程命令行:	
+
+“令牌提升类型”表示根据用户帐户控制策略分配给新进程的令牌类型。
+
+类型 1 是未删除特权或未禁用组的完全令牌。完全令牌仅在禁用了用户帐户控制或者用户是内置管理员帐户或服务帐户的情况下使用。
+
+类型 2 是未删除特权或未禁用组的提升令牌。当启用了用户帐户控制并且用户选择使用“以管理员身份运行”选项启动程序时，会使用提升令牌。当应用程序配置为始终需要管理特权或始终需要最高特权并且用户是管理员组的成员时，也会使用提升令牌。
+
+类型 3 是删除了管理特权并禁用了管理组的受限令牌。当启用了用户帐户控制，应用程序不需要管理特权并且用户未选择使用“以管理员身份运行”选项启动程序时，会使用受限令牌。"
+审核成功,2024/9/1 17:33:38,Microsoft-Windows-Security-Auditing,4688,Process Creation,"已创建新进程。
+
+创建者主题:
+	安全 ID:		SYSTEM
+	帐户名:		-
+	帐户域:		-
+	登录 ID:		0x3E7
+
+目标主题:
+	安全 ID:		NULL SID
+	帐户名:		-
+	帐户域:		-
+	登录 ID:		0x0
+
+进程信息:
+	新进程 ID:		0x228
+	新进程名称:	C:\Windows\System32\wininit.exe
+	令牌提升类型:	%%1936
+	强制性标签:		Mandatory Label\System Mandatory Level
+	创建者进程 ID:	0x1ac
+	创建者进程名称:	C:\Windows\System32\smss.exe
+	进程命令行:	
+
+“令牌提升类型”表示根据用户帐户控制策略分配给新进程的令牌类型。
+
+类型 1 是未删除特权或未禁用组的完全令牌。完全令牌仅在禁用了用户帐户控制或者用户是内置管理员帐户或服务帐户的情况下使用。
+
+类型 2 是未删除特权或未禁用组的提升令牌。当启用了用户帐户控制并且用户选择使用“以管理员身份运行”选项启动程序时，会使用提升令牌。当应用程序配置为始终需要管理特权或始终需要最高特权并且用户是管理员组的成员时，也会使用提升令牌。
+
+类型 3 是删除了管理特权并禁用了管理组的受限令牌。当启用了用户帐户控制，应用程序不需要管理特权并且用户未选择使用“以管理员身份运行”选项启动程序时，会使用受限令牌。"
+审核成功,2024/9/1 17:33:38,Microsoft-Windows-Security-Auditing,4688,Process Creation,"已创建新进程。
+
+创建者主题:
+	安全 ID:		SYSTEM
+	帐户名:		-
+	帐户域:		-
+	登录 ID:		0x3E7
+
+目标主题:
+	安全 ID:		NULL SID
+	帐户名:		-
+	帐户域:		-
+	登录 ID:		0x0
+
+进程信息:
+	新进程 ID:		0x220
+	新进程名称:	C:\Windows\System32\smss.exe
+	令牌提升类型:	%%1936
+	强制性标签:		Mandatory Label\System Mandatory Level
+	创建者进程 ID:	0x140
+	创建者进程名称:	C:\Windows\System32\smss.exe
+	进程命令行:	
+
+“令牌提升类型”表示根据用户帐户控制策略分配给新进程的令牌类型。
+
+类型 1 是未删除特权或未禁用组的完全令牌。完全令牌仅在禁用了用户帐户控制或者用户是内置管理员帐户或服务帐户的情况下使用。
+
+类型 2 是未删除特权或未禁用组的提升令牌。当启用了用户帐户控制并且用户选择使用“以管理员身份运行”选项启动程序时，会使用提升令牌。当应用程序配置为始终需要管理特权或始终需要最高特权并且用户是管理员组的成员时，也会使用提升令牌。
+
+类型 3 是删除了管理特权并禁用了管理组的受限令牌。当启用了用户帐户控制，应用程序不需要管理特权并且用户未选择使用“以管理员身份运行”选项启动程序时，会使用受限令牌。"
+审核成功,2024/9/1 17:33:38,Microsoft-Windows-Security-Auditing,4688,Process Creation,"已创建新进程。
+
+创建者主题:
+	安全 ID:		SYSTEM
+	帐户名:		-
+	帐户域:		-
+	登录 ID:		0x3E7
+
+目标主题:
+	安全 ID:		NULL SID
+	帐户名:		-
+	帐户域:		-
+	登录 ID:		0x0
+
+进程信息:
+	新进程 ID:		0x1b8
+	新进程名称:	C:\Windows\System32\csrss.exe
+	令牌提升类型:	%%1936
+	强制性标签:		Mandatory Label\System Mandatory Level
+	创建者进程 ID:	0x1ac
+	创建者进程名称:	C:\Windows\System32\smss.exe
+	进程命令行:	
+
+“令牌提升类型”表示根据用户帐户控制策略分配给新进程的令牌类型。
+
+类型 1 是未删除特权或未禁用组的完全令牌。完全令牌仅在禁用了用户帐户控制或者用户是内置管理员帐户或服务帐户的情况下使用。
+
+类型 2 是未删除特权或未禁用组的提升令牌。当启用了用户帐户控制并且用户选择使用“以管理员身份运行”选项启动程序时，会使用提升令牌。当应用程序配置为始终需要管理特权或始终需要最高特权并且用户是管理员组的成员时，也会使用提升令牌。
+
+类型 3 是删除了管理特权并禁用了管理组的受限令牌。当启用了用户帐户控制，应用程序不需要管理特权并且用户未选择使用“以管理员身份运行”选项启动程序时，会使用受限令牌。"
+审核成功,2024/9/1 17:33:38,Microsoft-Windows-Security-Auditing,4688,Process Creation,"已创建新进程。
+
+创建者主题:
+	安全 ID:		SYSTEM
+	帐户名:		-
+	帐户域:		-
+	登录 ID:		0x3E7
+
+目标主题:
+	安全 ID:		NULL SID
+	帐户名:		-
+	帐户域:		-
+	登录 ID:		0x0
+
+进程信息:
+	新进程 ID:		0x1ac
+	新进程名称:	C:\Windows\System32\smss.exe
+	令牌提升类型:	%%1936
+	强制性标签:		Mandatory Label\System Mandatory Level
+	创建者进程 ID:	0x140
+	创建者进程名称:	C:\Windows\System32\smss.exe
+	进程命令行:	
+
+“令牌提升类型”表示根据用户帐户控制策略分配给新进程的令牌类型。
+
+类型 1 是未删除特权或未禁用组的完全令牌。完全令牌仅在禁用了用户帐户控制或者用户是内置管理员帐户或服务帐户的情况下使用。
+
+类型 2 是未删除特权或未禁用组的提升令牌。当启用了用户帐户控制并且用户选择使用“以管理员身份运行”选项启动程序时，会使用提升令牌。当应用程序配置为始终需要管理特权或始终需要最高特权并且用户是管理员组的成员时，也会使用提升令牌。
+
+类型 3 是删除了管理特权并禁用了管理组的受限令牌。当启用了用户帐户控制，应用程序不需要管理特权并且用户未选择使用“以管理员身份运行”选项启动程序时，会使用受限令牌。"
+审核成功,2024/9/1 17:33:34,Microsoft-Windows-Security-Auditing,4688,Process Creation,"已创建新进程。
+
+创建者主题:
+	安全 ID:		SYSTEM
+	帐户名:		-
+	帐户域:		-
+	登录 ID:		0x3E7
+
+目标主题:
+	安全 ID:		NULL SID
+	帐户名:		-
+	帐户域:		-
+	登录 ID:		0x0
+
+进程信息:
+	新进程 ID:		0x178
+	新进程名称:	C:\Windows\System32\autochk.exe
+	令牌提升类型:	%%1936
+	强制性标签:		Mandatory Label\System Mandatory Level
+	创建者进程 ID:	0x140
+	创建者进程名称:	C:\Windows\System32\smss.exe
+	进程命令行:	
+
+“令牌提升类型”表示根据用户帐户控制策略分配给新进程的令牌类型。
+
+类型 1 是未删除特权或未禁用组的完全令牌。完全令牌仅在禁用了用户帐户控制或者用户是内置管理员帐户或服务帐户的情况下使用。
+
+类型 2 是未删除特权或未禁用组的提升令牌。当启用了用户帐户控制并且用户选择使用“以管理员身份运行”选项启动程序时，会使用提升令牌。当应用程序配置为始终需要管理特权或始终需要最高特权并且用户是管理员组的成员时，也会使用提升令牌。
+
+类型 3 是删除了管理特权并禁用了管理组的受限令牌。当启用了用户帐户控制，应用程序不需要管理特权并且用户未选择使用“以管理员身份运行”选项启动程序时，会使用受限令牌。"
+审核成功,2024/9/1 17:33:34,Microsoft-Windows-Security-Auditing,4688,Process Creation,"已创建新进程。
+
+创建者主题:
+	安全 ID:		SYSTEM
+	帐户名:		-
+	帐户域:		-
+	登录 ID:		0x3E7
+
+目标主题:
+	安全 ID:		NULL SID
+	帐户名:		-
+	帐户域:		-
+	登录 ID:		0x0
+
+进程信息:
+	新进程 ID:		0x140
+	新进程名称:	C:\Windows\System32\smss.exe
+	令牌提升类型:	%%1936
+	强制性标签:		Mandatory Label\System Mandatory Level
+	创建者进程 ID:	0x4
+	创建者进程名称:	
+	进程命令行:	
+
+“令牌提升类型”表示根据用户帐户控制策略分配给新进程的令牌类型。
+
+类型 1 是未删除特权或未禁用组的完全令牌。完全令牌仅在禁用了用户帐户控制或者用户是内置管理员帐户或服务帐户的情况下使用。
+
+类型 2 是未删除特权或未禁用组的提升令牌。当启用了用户帐户控制并且用户选择使用“以管理员身份运行”选项启动程序时，会使用提升令牌。当应用程序配置为始终需要管理特权或始终需要最高特权并且用户是管理员组的成员时，也会使用提升令牌。
+
+类型 3 是删除了管理特权并禁用了管理组的受限令牌。当启用了用户帐户控制，应用程序不需要管理特权并且用户未选择使用“以管理员身份运行”选项启动程序时，会使用受限令牌。"
+审核成功,2024/9/1 17:33:34,Microsoft-Windows-Security-Auditing,4826,Other Policy Change Events,"已加载引导配置数据。
+
+使用者:
+	安全性 ID:		SYSTEM
+	帐户名称:		-
+	帐户域:		-
+	登录 ID:		0x3E7
+
+常规设置:
+	加载选项:		-
+	高级选项:		否
+	配置访问策略:	默认
+	系统事件日志记录:	否
+	内核调试:	否
+	VSM 启动类型:	关
+
+签名设置:
+	测试签名:		否
+	检测签名:		否
+	禁用完整性检查:	否
+
+虚拟机监控程序设置:
+	虚拟机监控程序加载选项:	-
+	虚拟机监控程序启动类型:	关
+	虚拟机监控程序调试:	否"
+审核成功,2024/9/1 17:33:39,Microsoft-Windows-Eventlog,1101,事件处理,该传输已丢弃这些审核事件。0
+审核成功,2024/7/31 14:55:16,Microsoft-Windows-Security-Auditing,4616,Security State Change,"更改了系统时间。
+
+使用者:
+	安全 ID:	SYSTEM
+	帐户名:		WIN-LBRDN7PCEGG$
+	帐户域:	WORKGROUP
+	登录 ID:	0x3E7
+
+进程信息:
+	进程 ID:	0x864
+	名称:		C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
+
+以前的时间:		‎2024‎-‎07‎-‎31T06:02:48.070035400Z
+新时间:		‎2024‎-‎07‎-‎31T06:55:16.514000000Z
+
+当更改系统时间时会生成此事件。这对于 Windows 时间服务属正常情况，该服务以系统特权运行，定期更改系统时间。其他的系统时间更改意味着对计算机的破坏。"
+审核成功,2024/7/31 12:50:49,Microsoft-Windows-Security-Auditing,4616,Security State Change,"更改了系统时间。
+
+使用者:
+	安全 ID:	LOCAL SERVICE
+	帐户名:		LOCAL SERVICE
+	帐户域:	NT AUTHORITY
+	登录 ID:	0x3E5
+
+进程信息:
+	进程 ID:	0x1e0
+	名称:		C:\Windows\System32\svchost.exe
+
+以前的时间:		‎2024‎-‎07‎-‎31T04:50:49.479761800Z
+新时间:		‎2024‎-‎07‎-‎31T04:50:49.479000000Z
+
+当更改系统时间时会生成此事件。这对于 Windows 时间服务属正常情况，该服务以系统特权运行，定期更改系统时间。其他的系统时间更改意味着对计算机的破坏。"
+审核成功,2024/7/31 12:50:49,Microsoft-Windows-Security-Auditing,4616,Security State Change,"更改了系统时间。
+
+使用者:
+	安全 ID:	LOCAL SERVICE
+	帐户名:		LOCAL SERVICE
+	帐户域:	NT AUTHORITY
+	登录 ID:	0x3E5
+
+进程信息:
+	进程 ID:	0x1e0
+	名称:		C:\Windows\System32\svchost.exe
+
+以前的时间:		‎2024‎-‎07‎-‎31T04:50:41.079749700Z
+新时间:		‎2024‎-‎07‎-‎31T04:50:49.477705600Z
+
+当更改系统时间时会生成此事件。这对于 Windows 时间服务属正常情况，该服务以系统特权运行，定期更改系统时间。其他的系统时间更改意味着对计算机的破坏。"
+审核成功,2024/7/31 12:34:15,Microsoft-Windows-Security-Auditing,4616,Security State Change,"更改了系统时间。
+
+使用者:
+	安全 ID:	SYSTEM
+	帐户名:		WIN-LBRDN7PCEGG$
+	帐户域:	WORKGROUP
+	登录 ID:	0x3E7
+
+进程信息:
+	进程 ID:	0x864
+	名称:		C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
+
+以前的时间:		‎2024‎-‎07‎-‎31T02:51:57.366912800Z
+新时间:		‎2024‎-‎07‎-‎31T04:34:15.812000000Z
+
+当更改系统时间时会生成此事件。这对于 Windows 时间服务属正常情况，该服务以系统特权运行，定期更改系统时间。其他的系统时间更改意味着对计算机的破坏。"
+审核成功,2024/7/31 10:45:26,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Backup Operators
+	组名:		Backup Operators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0x3c4
+	进程名称:		C:\Windows\System32\svchost.exe"
+审核成功,2024/7/31 10:45:26,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Administrators
+	组名:		Administrators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0x3c4
+	进程名称:		C:\Windows\System32\svchost.exe"
+审核成功,2024/7/31 9:30:48,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Backup Operators
+	组名:		Backup Operators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0x3c4
+	进程名称:		C:\Windows\System32\svchost.exe"
+审核成功,2024/7/31 9:30:48,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Administrators
+	组名:		Administrators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0x3c4
+	进程名称:		C:\Windows\System32\svchost.exe"
+审核成功,2024/7/31 9:20:20,Microsoft-Windows-Security-Auditing,4616,Security State Change,"更改了系统时间。
+
+使用者:
+	安全 ID:	LOCAL SERVICE
+	帐户名:		LOCAL SERVICE
+	帐户域:	NT AUTHORITY
+	登录 ID:	0x3E5
+
+进程信息:
+	进程 ID:	0x1e0
+	名称:		C:\Windows\System32\svchost.exe
+
+以前的时间:		‎2024‎-‎07‎-‎31T01:20:20.651445300Z
+新时间:		‎2024‎-‎07‎-‎31T01:20:20.651000000Z
+
+当更改系统时间时会生成此事件。这对于 Windows 时间服务属正常情况，该服务以系统特权运行，定期更改系统时间。其他的系统时间更改意味着对计算机的破坏。"
+审核成功,2024/7/31 9:20:20,Microsoft-Windows-Security-Auditing,4616,Security State Change,"更改了系统时间。
+
+使用者:
+	安全 ID:	LOCAL SERVICE
+	帐户名:		LOCAL SERVICE
+	帐户域:	NT AUTHORITY
+	登录 ID:	0x3E5
+
+进程信息:
+	进程 ID:	0x1e0
+	名称:		C:\Windows\System32\svchost.exe
+
+以前的时间:		‎2024‎-‎07‎-‎31T01:20:12.180195800Z
+新时间:		‎2024‎-‎07‎-‎31T01:20:20.649082700Z
+
+当更改系统时间时会生成此事件。这对于 Windows 时间服务属正常情况，该服务以系统特权运行，定期更改系统时间。其他的系统时间更改意味着对计算机的破坏。"
+审核成功,2024/7/31 9:04:17,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Backup Operators
+	组名:		Backup Operators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0x3c4
+	进程名称:		C:\Windows\System32\svchost.exe"
+审核成功,2024/7/31 9:04:17,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Administrators
+	组名:		Administrators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0x3c4
+	进程名称:		C:\Windows\System32\svchost.exe"
+审核成功,2024/7/31 9:03:38,Microsoft-Windows-Security-Auditing,4616,Security State Change,"更改了系统时间。
+
+使用者:
+	安全 ID:	SYSTEM
+	帐户名:		WIN-LBRDN7PCEGG$
+	帐户域:	WORKGROUP
+	登录 ID:	0x3E7
+
+进程信息:
+	进程 ID:	0x864
+	名称:		C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
+
+以前的时间:		‎2024‎-‎07‎-‎30T09:37:55.554366000Z
+新时间:		‎2024‎-‎07‎-‎31T01:03:38.644000000Z
+
+当更改系统时间时会生成此事件。这对于 Windows 时间服务属正常情况，该服务以系统特权运行，定期更改系统时间。其他的系统时间更改意味着对计算机的破坏。"
+审核成功,2024/7/30 17:31:09,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Backup Operators
+	组名:		Backup Operators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0x3c4
+	进程名称:		C:\Windows\System32\svchost.exe"
+审核成功,2024/7/30 17:31:09,Microsoft-Windows-Security-Auditing,4799,Security Group Management,"已枚举启用了安全机制的本地组成员身份。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+组:
+	安全 ID:		BUILTIN\Administrators
+	组名:		Administrators
+	组域:		Builtin
+
+进程信息:
+	进程 ID:		0x3c4
+	进程名称:		C:\Windows\System32\svchost.exe"
+审核成功,2024/7/30 17:30:01,Microsoft-Windows-Security-Auditing,4672,Special Logon,"为新登录分配了特殊权限。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+
+特权:		SeAssignPrimaryTokenPrivilege
+			SeTcbPrivilege
+			SeSecurityPrivilege
+			SeTakeOwnershipPrivilege
+			SeLoadDriverPrivilege
+			SeBackupPrivilege
+			SeRestorePrivilege
+			SeDebugPrivilege
+			SeAuditPrivilege
+			SeSystemEnvironmentPrivilege
+			SeImpersonatePrivilege
+			SeDelegateSessionUserImpersonatePrivilege"
+审核成功,2024/7/30 17:30:01,Microsoft-Windows-Security-Auditing,4624,Logon,"已成功登录帐户。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+登录信息:
+	登录类型:		5
+	受限制的管理员模式:	-
+	虚拟帐户:		否
+	提升的令牌:		是
+
+模拟级别:		模拟
+
+新登录:
+	安全 ID:		SYSTEM
+	帐户名称:		SYSTEM
+	帐户域:		NT AUTHORITY
+	登录 ID:		0x3E7
+	链接的登录 ID:		0x0
+	网络帐户名称:	-
+	网络帐户域:	-
+	登录 GUID:		{00000000-0000-0000-0000-000000000000}
+
+进程信息:
+	进程 ID:		0x2b4
+	进程名称:		C:\Windows\System32\services.exe
+
+网络信息:
+	工作站名称:	-
+	源网络地址:	-
+	源端口:		-
+
+详细的身份验证信息:
+	登录进程:		Advapi  
+	身份验证数据包:	Negotiate
+	传递的服务:	-
+	数据包名(仅限 NTLM):	-
+	密钥长度:		0
+
+创建登录会话时，将在被访问的计算机上生成此事件。
+
+“使用者”字段指示本地系统上请求登录的帐户。这通常是一个服务(例如 Server 服务)或本地进程(例如 Winlogon.exe 或 Services.exe)。
+
+“登录类型”字段指示发生的登录类型。最常见的类型是 2 (交互式)和 3 (网络)。
+
+“新登录”字段指示新登录是为哪个帐户创建的，即已登录的帐户。
+
+“网络”字段指示远程登录请求源自哪里。“工作站名称”并非始终可用，并且在某些情况下可能会留空。
+
+“模拟级别”字段指示登录会话中的进程可以模拟到的程度。
+
+“身份验证信息”字段提供有关此特定登录请求的详细信息。
+	- “登录 GUID”是可用于将此事件与 KDC 事件关联起来的唯一标识符。
+	-“传递的服务”指示哪些中间服务参与了此登录请求。
+	-“数据包名”指示在 NTLM 协议中使用了哪些子协议。
+	-“密钥长度”指示生成的会话密钥的长度。如果没有请求会话密钥，则此字段将为 0。"
+审核成功,2024/7/30 13:57:54,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/7/30 13:57:54,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/7/30 13:57:49,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/7/30 13:57:49,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/7/30 13:57:45,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/7/30 13:57:45,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/7/30 13:57:45,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/7/30 13:57:45,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"
+审核成功,2024/7/30 13:57:44,Microsoft-Windows-Security-Auditing,5061,System Integrity,"加密操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	RSA
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+加密操作:
+	操作:	打开密钥。
+	返回代码:	0x0"
+审核成功,2024/7/30 13:57:44,Microsoft-Windows-Security-Auditing,5058,Other System Events,"密钥文件操作。
+
+使用者:
+	安全 ID:		SYSTEM
+	帐户名称:		WIN-LBRDN7PCEGG$
+	帐户域:		WORKGROUP
+	登录 ID:		0x3E7
+
+加密参数:
+	提供程序名称:	Microsoft Software Key Storage Provider
+	算法名称:	UNKNOWN
+	密钥名称:	{4737AEB7-8BFF-4FC6-9A19-EDEBD81C5234}
+	密钥类型:	计算机密钥。
+
+密钥文件操作信息:
+	文件路径:	C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\d6b9ac4b4b13862f3a68bb06fc4b8a4a_e033ddb9-2da7-44b7-ba18-72b3526ef699
+	操作:	从文件中读取保留的密钥。
+	返回代码:	0x0"

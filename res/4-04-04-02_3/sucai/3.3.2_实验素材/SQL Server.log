@@ -1,0 +1,18 @@
+2024-09-01 12:00:00, Info, Server, , 12345, Starting up database engine. This is an informational message. No user action is required.
+2024-09-01 12:00:05, Info, Server, , 12346, Database 'model' is being loaded. This is an informational message. No user action is required.
+2024-09-01 12:00:10, Info, Server, , 12347, The SQL Server Database Engine has successfully initialized the SQL Server service. This is an informational message. No user action is required.
+2024-09-01 12:01:00, Success, Security, , 12348, Login succeeded for user 'DOMAIN\User1'.
+2024-09-01 12:01:05, Success, Security, , 12349, Login succeeded for user 'DOMAIN\User2'.
+2024-09-01 12:02:00, Error, Security, , 12350, Login failed for user 'UNKNOWN\InvalidUser'. Reason: Invalid username or password. [CLIENT: 192.168.1.100]
+2024-09-01 12:02:05, Error, Security, , 12351, Login failed for user 'UNKNOWN\InvalidUser'. Reason: Invalid username or password. [CLIENT: 192.168.1.100]
+2024-09-01 12:03:00, Info, Server, , 12352, Backup of database 'AdventureWorks' successfully completed.
+2024-09-01 12:03:05, Info, Server, , 12353, Restore of database 'WideWorldImporters' successfully completed.
+2024-09-01 12:04:00, Warning, Query, , 12354, Query has been running for more than 5 minutes for user 'DOMAIN\User3' on database 'AdventureWorks'.
+2024-09-01 12:05:00, Success, Security, , 12355, Login succeeded for user 'DOMAIN\User4'.
+2024-09-01 12:05:05, Error, Security, , 12356, Login failed for user 'UNKNOWN\InvalidUser'. Reason: Invalid username or password. [CLIENT: 192.168.1.100]
+2024-09-01 12:06:00, Error, Security, , 12357, Login failed for user 'UNKNOWN\InvalidUser'. Reason: Invalid username or password. [CLIENT: 192.168.1.100]
+2024-09-01 12:06:05, Error, Security, , 12358, Login failed for user 'UNKNOWN\InvalidUser'. Reason: Invalid username or password. [CLIENT: 192.168.1.100]
+2024-09-01 12:07:00, Warning, Query, , 12359, Query has been running for more than 10 minutes for user 'DOMAIN\User5' on database 'WideWorldImporters'.
+2024-09-01 12:07:05, Warning, Query, , 12360, Query has been running for more than 8 minutes for user 'DOMAIN\User6' on database 'AdventureWorks'.
+2024-09-01 23:59:00, Info, Server, , 12999, SQL Server is shutting down.
+2024-09-01 23:59:05, Info, Server, , 13000, SQL Server shutdown complete. This is an informational message. No user action is required.
