@@ -157,6 +157,19 @@
         font-size: 1.1em;
     }
 
+    /* --- Resource block (inline label + inline links) --- */
+    .res {
+        padding: 12px 25px;
+        background: #f7f9fb;
+        border-bottom: 1px solid #eee;
+        white-space: nowrap; /* keep links on one line */
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .res-label { font-weight: 600; margin-right: 8px; color: #2c3e50; }
+    .res-link { display: inline-block; margin-right: 12px; color: var(--primary-color); text-decoration: none; }
+    .res-link:hover { text-decoration: underline; }
+
     p { margin-bottom: 1em; text-align: justify; }
 
     /* Buttons & Tables */
@@ -201,7 +214,7 @@
         <h2>试题导航</h2>
         <ul>
             <li><a href='#sec-1-1-1'>1.1.1 智能医疗系统中的业务数据处理流程设计</a></li>
-<li><a href='#sec-1-1-2_20250716_135623'>1.1.2 智能农业系统中的业务数据采集和处理流程设计</a></li>
+<li><a href='#sec-1-1-2'>1.1.2 智能农业系统中的业务数据采集和处理流程设计</a></li>
 <li><a href='#sec-1-1-3'>1.1.3 金融机构信用评估系统中的业务数据审核流程设计</a></li>
 <li><a href='#sec-1-1-4'>1.1.4 电商平台用户行为分析系统的数据采集与处理流程设计</a></li>
 <li><a href='#sec-1-1-5'>1.1.5 智能交通系统的数据采集、处理和审核流程设计</a></li>
@@ -245,6 +258,7 @@
     <main class="content">
        <section id='sec-1-1-1' class='exam-item'>
 <h2 class='exam-title'>1.1.1 智能医疗系统中的业务数据处理流程设计</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/1.1.1/1.1.1.ipynb' target='_blank' rel='noopener'>1.1.1.ipynb</a><a class='res-link' href='人工智能训练师三级上网素材/1.1.1/patient_data.csv' target='_blank' rel='noopener'>patient_data.csv</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -326,8 +340,9 @@
     </div>
 </div>
 </section>
-<section id='sec-1-1-2_20250716_135623' class='exam-item'>
+<section id='sec-1-1-2' class='exam-item'>
 <h2 class='exam-title'>1.1.2 智能农业系统中的业务数据采集和处理流程设计</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/1.1.2/1.1.2.ipynb' target='_blank' rel='noopener'>1.1.2.ipynb</a><a class='res-link' href='人工智能训练师三级上网素材/1.1.2/sensor_data.csv' target='_blank' rel='noopener'>sensor_data.csv</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -414,6 +429,7 @@
 </section>
 <section id='sec-1-1-3' class='exam-item'>
 <h2 class='exam-title'>1.1.3 金融机构信用评估系统中的业务数据审核流程设计</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/1.1.3/1.1.3.ipynb' target='_blank' rel='noopener'>1.1.3.ipynb</a><a class='res-link' href='人工智能训练师三级上网素材/1.1.3/credit_data.csv' target='_blank' rel='noopener'>credit_data.csv</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -500,6 +516,7 @@
 </section>
 <section id='sec-1-1-4' class='exam-item'>
 <h2 class='exam-title'>1.1.4 电商平台用户行为分析系统的数据采集与处理流程设计</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/1.1.4/1.1.4.ipynb' target='_blank' rel='noopener'>1.1.4.ipynb</a><a class='res-link' href='人工智能训练师三级上网素材/1.1.4/user_behavior_data.csv' target='_blank' rel='noopener'>user_behavior_data.csv</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -593,6 +610,7 @@
 </section>
 <section id='sec-1-1-5' class='exam-item'>
 <h2 class='exam-title'>1.1.5 智能交通系统的数据采集、处理和审核流程设计</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/1.1.5/1.1.5.ipynb' target='_blank' rel='noopener'>1.1.5.ipynb</a><a class='res-link' href='人工智能训练师三级上网素材/1.1.5/vehicle_traffic_data.csv' target='_blank' rel='noopener'>vehicle_traffic_data.csv</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -702,6 +720,7 @@
 </section>
 <section id='sec-1-2-1' class='exam-item'>
 <h2 class='exam-title'>1.2.1 顾客评价情感识别业务模块效果优化</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/1.2.1/1.2.1.docx' target='_blank' rel='noopener'>1.2.1.docx</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -759,6 +778,7 @@
 </section>
 <section id='sec-1-2-2' class='exam-item'>
 <h2 class='exam-title'>1.2.2 老年人健康监测与管理服务业务模块效果优化</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/1.2.2/1.2.2.docx' target='_blank' rel='noopener'>1.2.2.docx</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -816,6 +836,7 @@
 </section>
 <section id='sec-1-2-3' class='exam-item'>
 <h2 class='exam-title'>1.2.3 智慧金融服务业务模块效果优化</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/1.2.3/1.2.3.docx' target='_blank' rel='noopener'>1.2.3.docx</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -873,6 +894,7 @@
 </section>
 <section id='sec-1-2-4' class='exam-item'>
 <h2 class='exam-title'>1.2.4 智能卖点生成系统业务模块效果优化</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/1.2.4/1.2.4.docx' target='_blank' rel='noopener'>1.2.4.docx</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -930,6 +952,7 @@
 </section>
 <section id='sec-1-2-5' class='exam-item'>
 <h2 class='exam-title'>1.2.5 腾讯云智能数智人系统业务模块效果优化</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/1.2.5/1.2.5.docx' target='_blank' rel='noopener'>1.2.5.docx</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -987,6 +1010,7 @@
 </section>
 <section id='sec-2-1-1' class='exam-item'>
 <h2 class='exam-title'>2.1.1 智慧交通中燃油效率模型的数据清洗和标注流程设计</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/2.1.1/2.1.1.docx' target='_blank' rel='noopener'>2.1.1.docx</a><a class='res-link' href='人工智能训练师三级上网素材/2.1.1/2.1.1.ipynb' target='_blank' rel='noopener'>2.1.1.ipynb</a><a class='res-link' href='人工智能训练师三级上网素材/2.1.1/auto-mpg.csv' target='_blank' rel='noopener'>auto-mpg.csv</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -1057,6 +1081,7 @@
 </section>
 <section id='sec-2-1-2' class='exam-item'>
 <h2 class='exam-title'>2.1.2 低碳生活行为影响因素数据清洗和标注流程设计</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/2.1.2/2.1.2.docx' target='_blank' rel='noopener'>2.1.2.docx</a><a class='res-link' href='人工智能训练师三级上网素材/2.1.2/2.1.2.ipynb' target='_blank' rel='noopener'>2.1.2.ipynb</a><a class='res-link' href='人工智能训练师三级上网素材/2.1.2/大学生低碳生活行为的影响因素数据集.xlsx' target='_blank' rel='noopener'>大学生低碳生活行为的影响因素数据集.xlsx</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -1128,6 +1153,7 @@
 </section>
 <section id='sec-2-1-3' class='exam-item'>
 <h2 class='exam-title'>2.1.3 信用评分模型数据清洗和标注流程设计</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/2.1.3/2.1.3.docx' target='_blank' rel='noopener'>2.1.3.docx</a><a class='res-link' href='人工智能训练师三级上网素材/2.1.3/2.1.3.ipynb' target='_blank' rel='noopener'>2.1.3.ipynb</a><a class='res-link' href='人工智能训练师三级上网素材/2.1.3/finance数据集.csv' target='_blank' rel='noopener'>finance数据集.csv</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -1199,6 +1225,7 @@
 </section>
 <section id='sec-2-1-4' class='exam-item'>
 <h2 class='exam-title'>2.1.4 医疗研究数据清洗和标注设计</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/2.1.4/2.1.4.docx' target='_blank' rel='noopener'>2.1.4.docx</a><a class='res-link' href='人工智能训练师三级上网素材/2.1.4/2.1.4.ipynb' target='_blank' rel='noopener'>2.1.4.ipynb</a><a class='res-link' href='人工智能训练师三级上网素材/2.1.4/medical_data.csv' target='_blank' rel='noopener'>medical_data.csv</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -1270,6 +1297,7 @@
 </section>
 <section id='sec-2-1-5' class='exam-item'>
 <h2 class='exam-title'>2.1.5 健康与营养咨询数据预处理与数据规范设计</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/2.1.5/2.1.5.docx' target='_blank' rel='noopener'>2.1.5.docx</a><a class='res-link' href='人工智能训练师三级上网素材/2.1.5/2.1.5.ipynb' target='_blank' rel='noopener'>2.1.5.ipynb</a><a class='res-link' href='人工智能训练师三级上网素材/2.1.5/健康咨询客户数据集.csv' target='_blank' rel='noopener'>健康咨询客户数据集.csv</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -1340,6 +1368,7 @@
 </section>
 <section id='sec-2-2-1' class='exam-item'>
 <h2 class='exam-title'>2.2.1 智能信用评分Logistic回归模型开发与测试</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/2.2.1/2.2.1.docx' target='_blank' rel='noopener'>2.2.1.docx</a><a class='res-link' href='人工智能训练师三级上网素材/2.2.1/2.2.1.ipynb' target='_blank' rel='noopener'>2.2.1.ipynb</a><a class='res-link' href='人工智能训练师三级上网素材/2.2.1/finance数据集.csv' target='_blank' rel='noopener'>finance数据集.csv</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -1416,6 +1445,7 @@
 </section>
 <section id='sec-2-2-2' class='exam-item'>
 <h2 class='exam-title'>2.2.2 智慧交通中燃油效率随机森林模型开发与测试</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/2.2.2/2.2.2.docx' target='_blank' rel='noopener'>2.2.2.docx</a><a class='res-link' href='人工智能训练师三级上网素材/2.2.2/2.2.2.ipynb' target='_blank' rel='noopener'>2.2.2.ipynb</a><a class='res-link' href='人工智能训练师三级上网素材/2.2.2/auto-mpg.csv' target='_blank' rel='noopener'>auto-mpg.csv</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -1492,6 +1522,7 @@
 </section>
 <section id='sec-2-2-3' class='exam-item'>
 <h2 class='exam-title'>2.2.3 日常运动量随机森林预测模型开发与测试</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/2.2.3/2.2.3.docx' target='_blank' rel='noopener'>2.2.3.docx</a><a class='res-link' href='人工智能训练师三级上网素材/2.2.3/2.2.3.ipynb' target='_blank' rel='noopener'>2.2.3.ipynb</a><a class='res-link' href='人工智能训练师三级上网素材/2.2.3/fitness analysis.csv' target='_blank' rel='noopener'>fitness analysis.csv</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -1568,6 +1599,7 @@
 </section>
 <section id='sec-2-2-4' class='exam-item'>
 <h2 class='exam-title'>2.2.4 低碳生活行为影响因素预测线性回归模型开发与测试</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/2.2.4/2.2.4.docx' target='_blank' rel='noopener'>2.2.4.docx</a><a class='res-link' href='人工智能训练师三级上网素材/2.2.4/2.2.4.ipynb' target='_blank' rel='noopener'>2.2.4.ipynb</a><a class='res-link' href='人工智能训练师三级上网素材/2.2.4/大学生低碳生活行为的影响因素数据集.xlsx' target='_blank' rel='noopener'>大学生低碳生活行为的影响因素数据集.xlsx</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -1644,6 +1676,7 @@
 </section>
 <section id='sec-2-2-5' class='exam-item'>
 <h2 class='exam-title'>2.2.5 智能步数预测模型开发与测试</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/2.2.5/2.2.5.docx' target='_blank' rel='noopener'>2.2.5.docx</a><a class='res-link' href='人工智能训练师三级上网素材/2.2.5/2.2.5.ipynb' target='_blank' rel='noopener'>2.2.5.ipynb</a><a class='res-link' href='人工智能训练师三级上网素材/2.2.5/fitness analysis.csv' target='_blank' rel='noopener'>fitness analysis.csv</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -1720,6 +1753,7 @@
 </section>
 <section id='sec-3-1-1' class='exam-item'>
 <h2 class='exam-title'>3.1.1 智能音箱产品的数据分析与优化</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/3.1.1/3.1.1.docx' target='_blank' rel='noopener'>3.1.1.docx</a><a class='res-link' href='人工智能训练师三级上网素材/3.1.1/智能音箱数据集.xlsx' target='_blank' rel='noopener'>智能音箱数据集.xlsx</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -1782,6 +1816,7 @@
 </section>
 <section id='sec-3-1-2' class='exam-item'>
 <h2 class='exam-title'>3.1.2 智能照明系统的数据分析与优化</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/3.1.2/3.1.2.docx' target='_blank' rel='noopener'>3.1.2.docx</a><a class='res-link' href='人工智能训练师三级上网素材/3.1.2/智能照明系统数据集.xlsx' target='_blank' rel='noopener'>智能照明系统数据集.xlsx</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -1844,6 +1879,7 @@
 </section>
 <section id='sec-3-1-3' class='exam-item'>
 <h2 class='exam-title'>3.1.3 智能健康手环的数据分析与优化</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/3.1.3/3.1.3.docx' target='_blank' rel='noopener'>3.1.3.docx</a><a class='res-link' href='人工智能训练师三级上网素材/3.1.3/智能健康手环数据集.xlsx' target='_blank' rel='noopener'>智能健康手环数据集.xlsx</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -1906,6 +1942,7 @@
 </section>
 <section id='sec-3-1-4' class='exam-item'>
 <h2 class='exam-title'>3.1.4 智能健康监测系统的数据分析与优化</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/3.1.4/3.1.4.docx' target='_blank' rel='noopener'>3.1.4.docx</a><a class='res-link' href='人工智能训练师三级上网素材/3.1.4/智能健康监测系统数据集.xlsx' target='_blank' rel='noopener'>智能健康监测系统数据集.xlsx</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -1968,6 +2005,7 @@
 </section>
 <section id='sec-3-1-5' class='exam-item'>
 <h2 class='exam-title'>3.1.5 智能家居环境控制系统的数据分析与优化</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/3.1.5/3.1.5.docx' target='_blank' rel='noopener'>3.1.5.docx</a><a class='res-link' href='人工智能训练师三级上网素材/3.1.5/智能家居环境控制系统数据集.xlsx' target='_blank' rel='noopener'>智能家居环境控制系统数据集.xlsx</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -2030,6 +2068,7 @@
 </section>
 <section id='sec-3-2-1' class='exam-item'>
 <h2 class='exam-title'>3.2.1 图像识别评估系统交互流程设计</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/3.2.1/3.2.1.docx' target='_blank' rel='noopener'>3.2.1.docx</a><a class='res-link' href='人工智能训练师三级上网素材/3.2.1/3.2.1.ipynb' target='_blank' rel='noopener'>3.2.1.ipynb</a><a class='res-link' href='人工智能训练师三级上网素材/3.2.1/img_test.jpg' target='_blank' rel='noopener'>img_test.jpg</a><a class='res-link' href='人工智能训练师三级上网素材/3.2.1/labels.txt' target='_blank' rel='noopener'>labels.txt</a><a class='res-link' href='人工智能训练师三级上网素材/3.2.1/resnet.onnx' target='_blank' rel='noopener'>resnet.onnx</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -2110,6 +2149,7 @@
 </section>
 <section id='sec-3-2-2' class='exam-item'>
 <h2 class='exam-title'>3.2.2 手写数字识别系统交互流程设计</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/3.2.2/3.2.2.docx' target='_blank' rel='noopener'>3.2.2.docx</a><a class='res-link' href='人工智能训练师三级上网素材/3.2.2/3.2.2.ipynb' target='_blank' rel='noopener'>3.2.2.ipynb</a><a class='res-link' href='人工智能训练师三级上网素材/3.2.2/img_test.png' target='_blank' rel='noopener'>img_test.png</a><a class='res-link' href='人工智能训练师三级上网素材/3.2.2/mnist.onnx' target='_blank' rel='noopener'>mnist.onnx</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -2190,6 +2230,7 @@
 </section>
 <section id='sec-3-2-3' class='exam-item'>
 <h2 class='exam-title'>3.2.3 面部表情识别系统交互流程设计</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/3.2.3/3.2.3.docx' target='_blank' rel='noopener'>3.2.3.docx</a><a class='res-link' href='人工智能训练师三级上网素材/3.2.3/3.2.3.ipynb' target='_blank' rel='noopener'>3.2.3.ipynb</a><a class='res-link' href='人工智能训练师三级上网素材/3.2.3/emotion-ferplus.onnx' target='_blank' rel='noopener'>emotion-ferplus.onnx</a><a class='res-link' href='人工智能训练师三级上网素材/3.2.3/img_test.png' target='_blank' rel='noopener'>img_test.png</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -2270,6 +2311,7 @@
 </section>
 <section id='sec-3-2-4' class='exam-item'>
 <h2 class='exam-title'>3.2.4 花朵智能识别系统交互流程设计</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/3.2.4/3.2.4.docx' target='_blank' rel='noopener'>3.2.4.docx</a><a class='res-link' href='人工智能训练师三级上网素材/3.2.4/3.2.4.ipynb' target='_blank' rel='noopener'>3.2.4.ipynb</a><a class='res-link' href='人工智能训练师三级上网素材/3.2.4/flower_test.png' target='_blank' rel='noopener'>flower_test.png</a><a class='res-link' href='人工智能训练师三级上网素材/3.2.4/flower-detection.onnx' target='_blank' rel='noopener'>flower-detection.onnx</a><a class='res-link' href='人工智能训练师三级上网素材/3.2.4/labels.txt' target='_blank' rel='noopener'>labels.txt</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -2350,6 +2392,7 @@
 </section>
 <section id='sec-3-2-5' class='exam-item'>
 <h2 class='exam-title'>3.2.5 人脸AI智能检测系统交互流程设计</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/3.2.5/3.2.5.ipynb' target='_blank' rel='noopener'>3.2.5.ipynb</a><a class='res-link' href='人工智能训练师三级上网素材/3.2.5/version-RFB-320.onnx' target='_blank' rel='noopener'>version-RFB-320.onnx</a><a class='res-link' href='人工智能训练师三级上网素材/3.2.5/voc-model-labels.txt' target='_blank' rel='noopener'>voc-model-labels.txt</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -2435,6 +2478,7 @@
 </section>
 <section id='sec-4-1-1' class='exam-item'>
 <h2 class='exam-title'>4.1.1 Label studio培训大纲编写</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/4.1.1/4.1.1.docx' target='_blank' rel='noopener'>4.1.1.docx</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -2493,6 +2537,7 @@
 </section>
 <section id='sec-4-1-2' class='exam-item'>
 <h2 class='exam-title'>4.1.2 爬虫培训大纲编写</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/4.1.2/4.1.2.docx' target='_blank' rel='noopener'>4.1.2.docx</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -2551,6 +2596,7 @@
 </section>
 <section id='sec-4-1-3' class='exam-item'>
 <h2 class='exam-title'>4.1.3 数据清洗培训大纲编写</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/4.1.3/4.1.3.docx' target='_blank' rel='noopener'>4.1.3.docx</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -2609,6 +2655,7 @@
 </section>
 <section id='sec-4-1-4' class='exam-item'>
 <h2 class='exam-title'>4.1.4 Pandas数据清洗培训大纲编写</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/4.1.4/4.1.4.docx' target='_blank' rel='noopener'>4.1.4.docx</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -2667,6 +2714,7 @@
 </section>
 <section id='sec-4-1-5' class='exam-item'>
 <h2 class='exam-title'>4.1.5 Python数据可视化培训大纲编写</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/4.1.5/4.1.5.docx' target='_blank' rel='noopener'>4.1.5.docx</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -2725,6 +2773,7 @@
 </section>
 <section id='sec-4-2-1' class='exam-item'>
 <h2 class='exam-title'>4.2.1 智能零售分析系统数据采集和处理指导</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/4.2.1/4.2.1.docx' target='_blank' rel='noopener'>4.2.1.docx</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -2783,6 +2832,7 @@
 </section>
 <section id='sec-4-2-2' class='exam-item'>
 <h2 class='exam-title'>4.2.2 AI辅助的医疗影像诊断系统数据采集和处理指导</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/4.2.2/4.2.2.docx' target='_blank' rel='noopener'>4.2.2.docx</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -2840,6 +2890,7 @@
 </section>
 <section id='sec-4-2-3' class='exam-item'>
 <h2 class='exam-title'>4.2.3 AI智能安防监控系统采集和处理指导</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/4.2.3/4.2.3.docx' target='_blank' rel='noopener'>4.2.3.docx</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -2897,6 +2948,7 @@
 </section>
 <section id='sec-4-2-4' class='exam-item'>
 <h2 class='exam-title'>4.2.4 自动驾驶汽车感知系统数据采集与标注指导</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/4.2.4/4.2.4.docx' target='_blank' rel='noopener'>4.2.4.docx</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>
@@ -2954,6 +3006,7 @@
 </section>
 <section id='sec-4-2-5' class='exam-item'>
 <h2 class='exam-title'>4.2.5 智能化数据标注在文化遗产数字化保护中的应用指导</h2>
+<div class='res'><span class='res-label'>素材：</span><a class='res-link' href='人工智能训练师三级上网素材/4.2.5/4.2.5.docx' target='_blank' rel='noopener'>4.2.5.docx</a></div>
 <div class="container">
     <div class="left-column">
         <h3>试题代码</h3>

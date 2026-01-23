@@ -1,4 +1,5 @@
 $files = Get-ChildItem "人工智能训练师三级考试平台模拟界面\*.html" | Sort-Object Name
+$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $outputContent = @()
 $navLinks = @()
 
@@ -30,6 +31,25 @@ foreach ($file in $files) {
     # Add to Content
     $outputContent += "<section id='$sectionId' class='exam-item'>"
     $outputContent += "<h2 class='exam-title'>$title</h2>"
+    # Build resource links from corresponding folder in '人工智能训练师三级上网素材'
+    $resHtml = ""
+    $resFolder = Join-Path $scriptDir "人工智能训练师三级上网素材\$($file.BaseName)"
+    if (Test-Path $resFolder) {
+        $attachments = Get-ChildItem -Path $resFolder -File | Sort-Object Name
+        if ($attachments.Count -gt 0) {
+            # Inline "素材" label and inline links so they fit one line
+            $resHtml = "<div class='res'><span class='res-label'>素材：</span>"
+            foreach ($att in $attachments) {
+                # Relative path from generated HTML (script and output are in same folder)
+                $href = "人工智能训练师三级上网素材/$($file.BaseName)/$($att.Name)"
+                $escapedName = [System.Web.HttpUtility]::HtmlEncode($att.Name)
+                $resHtml += "<a class='res-link' href='$href' target='_blank' rel='noopener'>$escapedName</a>"
+            }
+            $resHtml += "</div>"
+        }
+    }
+
+    if ($resHtml -ne "") { $outputContent += $resHtml }
     $outputContent += $examContent
     $outputContent += "</section>"
 }
@@ -188,6 +208,19 @@ $css = @"
         margin-bottom: 15px;
         font-size: 1.1em;
     }
+
+    /* --- Resource block (inline label + inline links) --- */
+    .res {
+        padding: 12px 25px;
+        background: #f7f9fb;
+        border-bottom: 1px solid #eee;
+        white-space: nowrap; /* keep links on one line */
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .res-label { font-weight: 600; margin-right: 8px; color: #2c3e50; }
+    .res-link { display: inline-block; margin-right: 12px; color: var(--primary-color); text-decoration: none; }
+    .res-link:hover { text-decoration: underline; }
 
     p { margin-bottom: 1em; text-align: justify; }
 
