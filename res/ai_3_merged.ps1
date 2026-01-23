@@ -243,7 +243,7 @@ $htmlHeader = @"
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>Merged Exam Questions</title>
+    <title>人工智能训练师三级上网</title>
     $css
 </head>
 <body>
@@ -259,6 +259,6 @@ $htmlFooter = @"
 "@
 
 $finalHtml = $htmlHeader + ($outputContent -join "`n") + $htmlFooter
-$finalHtml | Set-Content "merged_questions.html" -Encoding UTF8
+$finalHtml | Set-Content "ai_3_questions.html" -Encoding UTF8
 
-Write-Host "Done! File saved to merged_questions.html"
+Write-Host "Done! File saved to ai_3_questions.html"
