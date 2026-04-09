@@ -1,0 +1,74 @@
+--- res/人工智能训练师三级上网素材/2.1.4/2.1.4.ipynb.py
++++ res/人工智能训练师三级上网素材/2.1.4/2.1.4.ans.ipynb.py
+@@ -4 +4 @@
+-data = _________
+
++data = pd.read_csv('medical_data.csv', encoding='gbk')
+
+@@ -9 +9 @@
+-print(_________)
+
++print(data.info())
+
+@@ -19 +19 @@
+-_________(_________, inplace=True)
+
++data.rename(columns={'病人ID':'患者ID'}, inplace=True)
+
+@@ -27 +27 @@
+-data['诊断延迟'] = _________.dt.days
+
++data['诊断延迟'] = (data['诊断日期'] - data['就诊日期']).dt.days
+
+@@ -31 +31 @@
+-data = _________[(_________ >= 0) & (_________ > 0) & (_________ < 120)]
+
++data = data[(data['诊断延迟'] >= 0) & (data['年龄'] > 0) & (data['年龄'] < 120)]
+
+@@ -38 +38 @@
+-_________(inplace=True)
+
++data.drop_duplicates(inplace=True)
+
+@@ -47,2 +47,2 @@
+-columns_to_normalize = [_________]
+
+-data[columns_to_normalize] = _________
+
++columns_to_normalize = ['年龄', '体重', '身高']
+
++data[columns_to_normalize] = scaler.fit_transform(data[columns_to_normalize])
+
+@@ -60,0 +61,5 @@
++#苹果电脑中文字体会不一致，font_path = 替换试下运行
+
++# font_path = '/System/Library/Fonts/Heiti TC.ttc'  或   font_path = '/Library/Fonts/Heiti TC.ttc'  
+
++# font_path = '/System/Library/Fonts/Songti SC.ttc' 或  font_path = '/Library/Fonts/Songti SC.ttc'
+
++# 还是不行，2个合并写：my_font = fm.FontProperties(family='Heiti TC')
+
++
+
+@@ -65 +70 @@
+-_________(_________, stacked=True)
+
++treatment_outcome_distribution.plot(kind='bar', stacked=True)
+
+@@ -75 +80 @@
+-_________(_________, _________)
+
++plt.scatter(data['年龄'], data['疾病严重程度'])
+
+@@ -81 +86,2 @@
+-plt.legend(prop=my_font)  # 设置图例字体
+
++plt.legend([], [], prop=my_font) 
+
++plt.legend(prop=my_font)  # 设置图例字体：此段警告提示_没有图例，可忽略；不想看到这个提示，就把这段加 #注释本句
+
+@@ -86 +92 @@
+-_________(_________, index=False)
+
++data.to_csv(output_path, index=False)
+

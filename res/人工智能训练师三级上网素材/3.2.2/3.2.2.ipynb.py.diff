@@ -1,0 +1,44 @@
+--- res/人工智能训练师三级上网素材/3.2.2/3.2.2.ipynb.py
++++ res/人工智能训练师三级上网素材/3.2.2/3.2.2.ans.ipynb.py
+@@ -7 +7 @@
+-ort_session = __________________
+
++ort_session = onnxruntime.InferenceSession('mnist.onnx')
+
+@@ -11 +11 @@
+-image = __________________('L')  # 转为灰度图
+
++image = Image.open('img_test.png').convert('L')  # 转为灰度图
+
+@@ -15,4 +15,4 @@
+-image = __________________((28, 28))  # 调整大小为MNIST模型的输入尺寸2分
+
+-image_array = __________________(__________________, dtype=np.float32)  # 转为numpy数组2分
+
+-image_array = __________________(__________________, axis=0)  # 添加batch维度2分
+
+-image_array = __________________(__________________, axis=0)  # 添加通道维度2分
+
++image = image.resize((28, 28))  # 调整大小为MNIST模型的输入尺寸2分
+
++image_array = np.array(image, dtype=np.float32)  # 转为numpy数组2分
+
++image_array = np.expand_dims(image_array, axis=0)  # 添加batch维度2分
+
++image_array = np.expand_dims(image_array, axis=0)  # 添加通道维度2分
+
+@@ -22 +22 @@
+-ort_inputs = {__________________()[0].name: image_array}
+
++ort_inputs = {ort_session.get_inputs()[0].name: image_array}
+
+@@ -24 +24 @@
+-ort_outs = __________________(None, ort_inputs)
+
++ort_outs = ort_session.run(None, ort_inputs)
+
+@@ -28 +28 @@
+-predicted_class = __________________
+
++predicted_class = np.argmax(ort_outs[0])
+

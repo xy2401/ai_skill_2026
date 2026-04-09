@@ -1,0 +1,67 @@
+--- res/人工智能训练师三级上网素材/1.1.2/1.1.2.ipynb.py
++++ res/人工智能训练师三级上网素材/1.1.2/1.1.2.ans.ipynb.py
+@@ -5 +5 @@
+-data = _____________
+
++data = pd.read_csv('sensor_data.csv')
+
+@@ -10 +10 @@
+-sensor_stats = _____________(_____________)['Value']._____________
+
++sensor_stats = data.groupby('SensorType')['Value'].agg(['count','mean'])
+
+@@ -18 +18,3 @@
+-location_stats = data[data['SensorType']._____________._____________['Value'].mean().unstack()
+
++location_stats = data[data['SensorType'].isin(['Temperature','Humidity'])].groupby(['Location','SensorType'])['Value'].mean().unstack()
+
++#location_stats = data[data['SensorType'].isin(['Temperature', 'Humidity'])].groupby(['Location', 'SensorType'])['Value'].mean().unstack()
+
++
+
+@@ -26,3 +28,3 @@
+-data['is_abnormal'] = _____________(
+
+-    ((_____________) & ((data['Value'] < -10) | (data['Value'] > 50))) |
+
+-    ((_____________) & ((data['Value'] < 0) | (data['Value'] > 100))),
+
++data['is_abnormal'] = np.where(
+
++    ((data['SensorType']=='Temperature') & ((data['Value'] < -10) | (data['Value'] > 50))) |
+
++    ((data['SensorType']=='Humidity') & ((data['Value'] < 0) | (data['Value'] > 100))),
+
+@@ -32 +34 @@
+-print("异常值数量:", data['is_abnormal']._____________)
+
++print("异常值数量:", data['is_abnormal'].sum())
+
+@@ -35,2 +37,7 @@
+-data['Value']._____________(_____________, inplace=True)
+
+-data['Value']._____________(_____________, inplace=True)
+
++ 
+
++#data['Value'].fillna(method='ffill', inplace=True)
+
++#data['Value'].fillna(method='bfill', inplace=True)
+
++
+
++data['Value'].ffill(inplace=True)
+
++data['Value'].bfill(inplace=True)
+
++
+
+@@ -39,2 +46,2 @@
+-cleaned_data = _____________(_____________=['is_abnormal'])
+
+-_____________('cleaned_sensor_data.csv', _____________)
+
++cleaned_data = data.drop(columns=['is_abnormal'])
+
++cleaned_data.to_csv('cleaned_sensor_data.csv', index=False)
+

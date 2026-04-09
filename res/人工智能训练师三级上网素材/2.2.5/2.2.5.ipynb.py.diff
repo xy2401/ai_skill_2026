@@ -1,0 +1,69 @@
+--- res/人工智能训练师三级上网素材/2.2.5/2.2.5.ipynb.py
++++ res/人工智能训练师三级上网素材/2.2.5/2.2.5.ans.ipynb.py
+@@ -8 +8 @@
+-df = __________
+
++df = pd.read_csv('fitness analysis.csv')
+
+@@ -11 +11 @@
+-print(__________)
+
++print(df.head())
+
+@@ -15 +15 @@
+-X = __________(X)  # 将分类变量转为数值变量
+
++X = pd.get_dummies(X)  # 将分类变量转为数值变量
+
+@@ -18 +18 @@
+-y = __________  
+
++y = df['daily_steps']  
+
+@@ -21 +21 @@
+-X_train, X_test, y_train, y_test = __________(__________, random_state=42)
+
++X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+@@ -24 +24 @@
+-__________ = __________(random_state=42)
+
++dt_model = DecisionTreeRegressor(random_state=42)
+
+@@ -26 +26 @@
+-__________
+
++dt_model.fit(X_train,y_train)
+
+@@ -30 +30 @@
+-    pickle.__________
+
++    pickle.dump(dt_model,model_file)
+
+@@ -33 +33 @@
+-y_pred = __________
+
++y_pred = dt_model.predict(X_test)
+
+@@ -38 +38 @@
+-__________(__________, index=False, sep='\t')  
+
++results.to_csv(results_filename, index=False, sep='\t')  
+
+@@ -42,4 +42,4 @@
+-with open(__________) as f:
+
+-    f.write(f'均方误差: {__________}\n')
+
+-    f.write(f'平均绝对误差: {__________}\n')
+
+-    f.write(f'决定系数: {__________}\n')
+
++with open(report_filename, 'w') as f:
+
++    f.write(f'均方误差: {mean_squared_error(y_test,y_pred)}\n')
+
++    f.write(f'平均绝对误差: {mean_absolute_error(y_test,y_pred)}\n')
+
++    f.write(f'决定系数: {r2_score(y_test,y_pred)}\n')
+

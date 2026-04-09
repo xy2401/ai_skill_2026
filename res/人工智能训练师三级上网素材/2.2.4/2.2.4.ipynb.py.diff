@@ -1,0 +1,91 @@
+--- res/人工智能训练师三级上网素材/2.2.4/2.2.4.ipynb.py
++++ res/人工智能训练师三级上网素材/2.2.4/2.2.4.ans.ipynb.py
+@@ -9 +9 @@
+-data = __________
+
++data = pd.read_excel('大学生低碳生活行为的影响因素数据集.xlsx')
+
+@@ -12 +12,2 @@
+-print(__________)
+
++print(data.head())
+
++print(data.columns.to_list()) # 显示数据集的列名列表
+
+@@ -15 +16 @@
+-data_cleaned = __________(__________=['序号', '所用时间'])  # 删除不必要的列
+
++data_cleaned = data.drop(columns=['序号', '所用时间'])  # 删除不必要的列
+
+@@ -22,2 +23,2 @@
+-X = __________(__________=__________)
+
+-y = __________
+
++X = data_cleaned.drop(columns=[target])
+
++y = data_cleaned[target]
+
+@@ -26 +27 @@
+-X_train, X_test, y_train, y_test = __________(__________, random_state=42)
+
++X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.2, random_state=42)
+
+@@ -29 +30 @@
+-model = __________
+
++model = LinearRegression()
+
+@@ -31 +32 @@
+-__________
+
++model.fit(X_train,y_train)
+
+@@ -35 +36 @@
+-joblib.__________
+
++joblib.dump(model, model_filename)
+
+@@ -38 +39 @@
+-y_pred = __________
+
++y_pred = model.predict(X_test)
+
+@@ -43 +44 @@
+-__________(__________, index=False, sep='\t')  # 使用制表符分隔值保存到文本文件
+
++results.to_csv(results_filename, index=False, sep='\t')  # 使用制表符分隔值保存到文本文件
+
+@@ -48,2 +49,2 @@
+-    f.write(f'均方误差: {__________}\n')
+
+-    f.write(f'决定系数: {__________}\n')
+
++    f.write(f'均方误差: {mean_squared_error(y_test,y_pred)}\n')
+
++    f.write(f'决定系数: {r2_score(y_test,y_pred)}\n')
+
+@@ -53 +54 @@
+-xgb_model = __________(__________, subsample=0.8, colsample_bytree=0.8)
+
++xgb_model = XGBRegressor(n_estimators=1000, subsample=0.8, colsample_bytree=0.8)
+
+@@ -55 +56 @@
+-__________
+
++xgb_model.fit(X_train,y_train)
+
+@@ -58 +59 @@
+-y_pred_xg = __________
+
++y_pred_xg = xgb_model.predict(X_test)
+
+@@ -68,2 +69,2 @@
+-    f.write(f'均方误差: {__________}\n')
+
+-    f.write(f'决定系数: {__________}\n')
+
++    f.write(f'均方误差: {mean_squared_error(y_test,y_pred_xg)}\n')
+
++    f.write(f'决定系数: {r2_score(y_test,y_pred_xg)}\n')
+

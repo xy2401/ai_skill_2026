@@ -1,0 +1,62 @@
+--- res/人工智能训练师三级上网素材/2.2.1/2.2.1.ipynb.py
++++ res/人工智能训练师三级上网素材/2.2.1/2.2.1.ans.ipynb.py
+@@ -9 +9 @@
+-data = __________
+
++data = pd.read_csv('finance数据集.csv')
+
+@@ -12 +12 @@
+-print(__________)
+
++print(data.head())
+
+@@ -19 +19 @@
+-X_train, X_test, y_train, y_test = __________(__________, random_state=42)
+
++X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.2, random_state=42)
+
+@@ -22 +22 @@
+-model = __________
+
++model = LogisticRegression(max_iter=1000)
+
+@@ -24 +24 @@
+-__________
+
++model.fit(X_train,y_train)
+
+@@ -28 +28 @@
+-    pickle.__________
+
++    pickle.dump(model,file)
+
+@@ -31 +31 @@
+-y_pred = __________
+
++y_pred = model.predict(X_test)
+
+@@ -40 +40 @@
+-accuracy = __________
+
++accuracy = (y_test==y_pred).mean()
+
+@@ -45 +45 @@
+-X_resampled, y_resampled = __________
+
++X_resampled, y_resampled = smote.fit_resample(X_train, y_train)
+
+@@ -48 +48 @@
+-__________
+
++model.fit(X_resampled, y_resampled)
+
+@@ -50 +50 @@
+-y_pred_resampled = __________
+
++y_pred_resampled =  model.predict(X_test)
+
+@@ -61 +61 @@
+-accuracy_resampled = __________
+
++accuracy_resampled = (y_test==y_pred_resampled).mean()
+

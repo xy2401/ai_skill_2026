@@ -1,0 +1,47 @@
+--- res/人工智能训练师三级上网素材/3.2.5/3.2.5.ipynb.py
++++ res/人工智能训练师三级上网素材/3.2.5/3.2.5.ans.ipynb.py
+@@ -38 +38 @@
+-class_names = [_______________ for name in open('voc-model-labels.txt').readlines()]
+
++class_names = [name.strip() for name in open('voc-model-labels.txt').readlines()]
+
+@@ -41 +41 @@
+-ort_session = _______________('version-RFB-320.onnx')
+
++ort_session = ort.InferenceSession('version-RFB-320.onnx')
+
+@@ -44 +44 @@
+-input_name = _______________()[0].name
+
++input_name = ort_session.get_inputs()[0].name
+
+@@ -58 +58 @@
+-    os._______________
+
++    os.makedirs(result_path)
+
+@@ -68 +68 @@
+-    orig_image = _______________
+
++    orig_image = cv2.imread(img_path)
+
+@@ -72 +72 @@
+-    image = _______________(_______________, (320, 240))
+
++    image = cv2.resize(image, (320, 240))
+
+@@ -74 +74 @@
+-    image_mean = _______________([127, 127, 127])
+
++    image_mean = np.array([127, 127, 127])
+
+@@ -80 +80 @@
+-    image = _______________(image, axis=0)
+
++    image = np.expand_dims(image, axis=0)
+
+@@ -86 +86 @@
+-    confidences, boxes = _______________(None, {input_name: image})
+
++    confidences, boxes = ort_session.run(None, {input_name: image})
+

@@ -1,0 +1,51 @@
+--- res/人工智能训练师三级上网素材/3.2.4/3.2.4.ipynb.py
++++ res/人工智能训练师三级上网素材/3.2.4/3.2.4.ans.ipynb.py
+@@ -23 +23 @@
+-session = _________________
+
++session = ort.InferenceSession ('flower-detection.onnx')
+
+@@ -27 +27 @@
+-with _________________ as f:
+
++with open('labels.txt') as f:
+
+@@ -37 +37 @@
+-image = _________________('RGB')
+
++image = Image.open('flower_test.png').convert('RGB')
+
+@@ -41 +41 @@
+-processed_image = _________________
+
++processed_image = preprocess_image(image)
+
+@@ -49 +49 @@
+-output = _________________([output_name], {input_name: processed_image})[0]
+
++output = session.run([output_name], {input_name: processed_image})[0]
+
+@@ -53 +53 @@
+-accuracy = _________________(output, axis=-1)
+
++accuracy = scipy.special.softmax(output, axis=-1)
+
+@@ -57 +57 @@
+-predicted_idx =  __________
+
++predicted_idx =  np.argmax(accuracy[0])
+
+@@ -61,2 +61,2 @@
+-prob_percentage =  __________
+
+-
+
++prob_percentage =  accuracy[0,predicted_idx]*100
+
++ 
+
+@@ -65 +65 @@
+-predicted_label = __________
+
++predicted_label = labels[predicted_idx]
+

@@ -1,0 +1,73 @@
+--- res/人工智能训练师三级上网素材/2.1.5/2.1.5.ipynb.py
++++ res/人工智能训练师三级上网素材/2.1.5/2.1.5.ans.ipynb.py
+@@ -4 +4 @@
+-data = __________
+
++data = pd.read_csv('健康咨询客户数据集.csv')
+
+@@ -7 +7 @@
+-print(__________)
+
++print(data.info())
+
+@@ -10 +10 @@
+-print(__________)
+
++print(data.isnull().sum())
+
+@@ -13 +13,4 @@
+-data_cleaned = __________
+
++data_cleaned = data.dropna()
+
++
+
++print(data_cleaned['Your age'])
+
++print(data_cleaned['Your age'][0])
+
+@@ -16 +19,3 @@
+-data_cleaned.loc[:, 'Your age'] = __________(__________, errors='coerce')
+
++#data_cleaned.loc[:, 'Your age'] = pd.to_numeric(data_cleaned['Your age'], errors='coerce')
+
++#data_cleaned.loc[:, 'Your age'] = pd.to_numeric(data_cleaned['Your age'], errors='coerce')
+
++data_cleaned['Your age'] = pd.to_numeric(data_cleaned['Your age'], errors='coerce')
+
+@@ -19 +24 @@
+-data_cleaned.loc[:, 'Your age'] = data_cleaned['Your age'].__________
+
++data_cleaned.loc[:, 'Your age'] = data_cleaned['Your age'].astype(int)
+
+@@ -25 +30 @@
+-data_cleaned = __________
+
++data_cleaned = data_cleaned.drop_duplicates()
+
+@@ -33 +38,2 @@
+-data_cleaned[__________] = __________
+
++data_cleaned['How do you describe your current level of fitness ?'] = label_encoder.fit_transform
+
++(data_cleaned['How do you describe your current level of fitness ?'])
+
+@@ -53 +59 @@
+-__________(autopct='%1.1f%%', startangle=90, colors=plt.cm.Paired.colors)
+
++exercise_frequency_counts.plot.pie(autopct='%1.1f%%', startangle=90, colors=plt.cm.Paired.colors)
+
+@@ -66 +72 @@
+-train_data, test_data = __________(__________, random_state=42)
+
++train_data, test_data = train_test_split(data_filled,test_size=0.2, random_state=42)
+
+@@ -69,2 +75,2 @@
+-cleaned_file_path = '__________'
+
+-__________(__________, index=False)
+
++cleaned_file_path = '2.1.5_cleaned_data.csv'
+
++data_filled.to_csv(cleaned_file_path, index=False)
+

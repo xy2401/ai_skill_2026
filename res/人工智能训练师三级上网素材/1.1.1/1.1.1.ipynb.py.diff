@@ -1,0 +1,57 @@
+--- res/人工智能训练师三级上网素材/1.1.1/1.1.1.ipynb.py
++++ res/人工智能训练师三级上网素材/1.1.1/1.1.1.ans.ipynb.py
+@@ -5 +5 @@
+-data = _____________
+
++data = pd.read_csv('patient_data.csv')
+
+@@ -10 +10 @@
+-_____________ = _____________(_____________, '高风险患者', '低风险患者')
+
++data['RiskLevel'] = np.where(data['DaysInHospital']>7, '高风险患者', '低风险患者')
+
+@@ -12 +12 @@
+-risk_counts = data_____________._____________
+
++risk_counts = data['RiskLevel'].value_counts()
+
+@@ -14 +14 @@
+-high_risk_ratio = risk_counts['高风险患者'] / _____________
+
++high_risk_ratio = risk_counts['高风险患者'] / len(data)
+
+@@ -16 +16 @@
+-low_risk_ratio = risk_counts['低风险患者'] / _____________
+
++low_risk_ratio = risk_counts['低风险患者'] / len(data)
+
+@@ -30 +30 @@
+-data['BMIRange'] = _____________(_____________, _____________, _____________, right=False)  # 使用左闭右开区间
+
++data['BMIRange'] = pd.cut(data['BMI'], bins= bmi_bins, labels= bmi_labels, right=False)  # 使用左闭右开区间
+
+@@ -32 +32 @@
+-bmi_risk_rate = _____________(_____________)['RiskLevel'].apply(lambda x: (x == '高风险患者').mean())
+
++bmi_risk_rate = data.groupby('BMIRange')['RiskLevel'].apply(lambda x: (x == '高风险患者').mean())
+
+@@ -34 +34 @@
+-bmi_patient_count = data_____________
+
++bmi_patient_count = data['BMIRange'].value_counts()
+
+@@ -47 +47 @@
+-data['AgeRange'] = _____________(_____________, _____________, _____________, right=False)  # 使用左闭右开区间
+
++data['AgeRange'] = pd.cut(data['Age'], bins=age_bins, labels=age_labels, right=False)  # 使用左闭右开区间
+
+@@ -49 +49 @@
+-age_risk_rate = _____________(_____________)['RiskLevel'].apply(lambda x: (x == '高风险患者').mean())
+
++age_risk_rate = data.groupby('AgeRange')['RiskLevel'].apply(lambda x: (x == '高风险患者').mean())
+
+@@ -51 +51 @@
+-age_patient_count = data_____________
+
++age_patient_count = data['AgeRange'].value_counts()
+

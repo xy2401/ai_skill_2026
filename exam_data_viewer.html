@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人工智能训练师三级考试数据查看器</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #f5f5f5;
+        }
+        
+        /* 顶部导航栏样式 */
+        #top-nav {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            transition: max-height 0.3s ease-out;
+            max-height: 90px;
+        }
+        
+        #top-nav.expanded {
+            max-height: 80vh;
+        }
+
+        #nav-header {
+            min-height: 60px;
+            padding: 5px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f8f9fa;
+        }
+
+        #current-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 1;
+            margin: 0 15px;
+            overflow: hidden;
+        }
+
+        #title-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        #current-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #333;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        #current-assets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        .nav-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .btn-success {
+            background: #28a745;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+        .btn-info {
+            background: #17a2b8;
+        }
+
+        .btn-info:hover {
+            background: #138496;
+        }
+
+        /* 试题列表容器 */
+        #exam-list-container {
+            overflow-y: auto;
+            border-top: 1px solid #eee;
+            background: #fff;
+            display: none;
+        }
+
+        #top-nav.expanded #exam-list-container {
+            display: block;
+        }
+
+        #exam-list {
+            padding: 15px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 10px;
+        }
+
+        .exam-item {
+            padding: 12px;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: #fafafa;
+        }
+
+        .exam-item:hover {
+            background-color: #e9ecef;
+            border-color: #dee2e6;
+        }
+
+        .exam-item.active {
+            background-color: #007bff;
+            color: #fff;
+            border-color: #007bff;
+        }
+
+        .exam-title {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .assets-section {
+            font-size: 0.8rem;
+        }
+
+        .asset-row {
+            margin-top: 2px;
+        }
+
+        .asset-row span {
+            color: #666;
+            margin-right: 5px;
+        }
+
+        .exam-item.active .asset-row span {
+            color: #eee;
+        }
+
+        .asset-link {
+            display: inline-block;
+            margin-right: 5px;
+            color: #0056b3;
+            text-decoration: none;
+            background: #f1f3f5;
+            padding: 1px 6px;
+            border-radius: 3px;
+            border: 1px solid #dee2e6;
+            font-size: 0.85rem;
+        }
+
+        #current-assets .asset-link {
+            background: #e7f1ff;
+            border-color: #b3d7ff;
+        }
+        
+        #current-assets .asset-tag {
+            font-size: 0.75rem;
+            color: #666;
+            margin-right: 2px;
+            font-weight: normal;
+        }
+
+        /* 主内容区域 */
+        #main-content {
+            flex: 1;
+            position: relative;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: #fff;
+        }
+
+        /* 全屏遮罩/Modal 样式 */
+        #asset-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            flex-direction: column;
+        }
+
+        #modal-header {
+            padding: 10px 20px;
+            background: #333;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #modal-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: #fff;
+            margin: 20px;
+            border-radius: 8px;
+        }
+
+        /* 代码展示区域样式 */
+        .code-viewer {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .viewer-title {
+            background: #f1f3f5;
+            padding: 8px 15px;
+            border-bottom: 1px solid #ddd;
+            font-weight: bold;
+            color: #495057;
+        }
+
+        .diff-container {
+            padding: 15px;
+            background: #f8f9fa;
+            white-space: pre-wrap;
+            color: #333;
+        }
+
+        .diff-added { color: #28a745; background-color: #e6ffed; }
+        .diff-removed { color: #d73a49; background-color: #ffeef0; }
+
+        /* 并行代码展示样式 */
+        .parallel-viewer {
+            display: grid;
+            grid-template-columns: 1fr 60px 1fr;
+            background: #f8f9fa;
+        }
+
+        .code-pane {
+            padding: 15px;
+            white-space: pre;
+            overflow-x: auto;
+            background: #fff;
+        }
+
+        .line-numbers {
+            background: #f1f3f5;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px 0;
+            color: #999;
+            user-select: none;
+        }
+
+        .markdown-viewer {
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        #placeholder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #999;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div id="top-nav">
+    <div id="nav-header">
+        <button class="btn btn-secondary" onclick="toggleList()" id="toggle-list-btn">展开题目列表</button>
+        
+        <div id="current-info">
+            <div id="title-row">
+                <span id="current-title">请选择试题</span>
+            </div>
+            <div id="current-assets"></div>
+        </div>
+
+        <div class="nav-controls">
+            <button class="btn btn-success" id="view-assets-btn" onclick="showAssetModal()">查看素材</button>
+            <button class="btn btn-info" id="ai-analysis-btn" onclick="showAIAnalysis()">AI解析</button>
+            <button class="btn" id="prev-btn" onclick="prevExam()" disabled>上一题</button>
+            <button class="btn" id="next-btn" onclick="nextExam()" disabled>下一题</button>
+        </div>
+    </div>
+    <div id="exam-list-container">
+        <div id="exam-list"></div>
+    </div>
+</div>
+
+<div id="main-content">
+    <div id="placeholder">正在初始化数据...</div>
+    <iframe id="exam-frame" name="exam-frame"></iframe>
+</div>
+
+<!-- 素材查看 Modal -->
+<div id="asset-modal">
+    <div id="modal-header">
+        <h3 id="modal-title">素材查看</h3>
+        <button class="btn btn-secondary" onclick="hideAssetModal()">关闭</button>
+    </div>
+    <div id="modal-content">
+        <!-- 内容由 JS 动态生成 -->
+    </div>
+</div>
+
+<script>
+    const CONFIG = {
+        jsonPath: 'res/exam_data.json',
+        examBase: 'res/人工智能训练师三级考试平台模拟界面/',
+        assetsBase: 'res/人工智能训练师三级上网素材/',
+        mdBase: 'res/人工智能训练师三级上网素材.md/',
+        aiBase: 'study/gemini/'
+    };
+
+    let examData = null;
+    let currentIndex = -1;
+
+    async function init() {
+        try {
+            const response = await fetch(CONFIG.jsonPath);
+            examData = await response.json();
+            renderExamList(examData);
+            if (examData.Exam && examData.Exam.length > 0) {
+                selectExam(0);
+            }
+        } catch (error) {
+            console.error('加载 JSON 失败:', error);
+            document.getElementById('exam-list').innerHTML = `<p style="color:red; padding:20px;">加载数据失败，请检查 res/exam_data.json 是否存在。</p>`;
+        }
+    }
+
+    function renderExamList(data) {
+        const listContainer = document.getElementById('exam-list');
+        listContainer.innerHTML = '';
+        data.Exam.forEach((item, index) => {
+            const div = document.createElement('div');
+            div.className = 'exam-item';
+            div.id = `exam-item-${index}`;
+            const titleSpan = document.createElement('span');
+            titleSpan.className = 'exam-title';
+            titleSpan.textContent = item.title;
+            div.appendChild(titleSpan);
+            const assets = data.Assets[item.id] || [];
+            if (assets.length > 0) {
+                const assetsSection = document.createElement('div');
+                assetsSection.className = 'assets-section';
+                renderAssetsToContainer(assetsSection, item.id, assets);
+                div.appendChild(assetsSection);
+            }
+            div.onclick = (e) => {
+                if (e.target.tagName === 'A') return;
+                selectExam(index);
+                toggleList(false);
+            };
+            listContainer.appendChild(div);
+        });
+    }
+
+    function renderAssetsToContainer(container, itemId, assets, isCompact = false) {
+        const ipynbFiles = assets.filter(f => f.toLowerCase().includes('ipynb'));
+        const otherFiles = assets.filter(f => !f.toLowerCase().includes('ipynb'));
+        const quesIpynb = ipynbFiles.filter(f => !f.toLowerCase().includes('.ans.'));
+        if (quesIpynb.length > 0) {
+            const row = document.createElement('div');
+            row.className = 'asset-row';
+            row.innerHTML = `<span class="${isCompact ? 'asset-tag' : ''}">题目:</span>`;
+            quesIpynb.forEach(file => row.appendChild(createAssetLink(itemId, file)));
+            container.appendChild(row);
+        }
+        const ansIpynb = ipynbFiles.filter(f => f.toLowerCase().includes('.ans.'));
+        if (ansIpynb.length > 0) {
+            const row = document.createElement('div');
+            row.className = 'asset-row';
+            row.innerHTML = `<span class="${isCompact ? 'asset-tag' : ''}">解答:</span>`;
+            ansIpynb.forEach(file => row.appendChild(createAssetLink(itemId, file)));
+            container.appendChild(row);
+        }
+        if (otherFiles.length > 0) {
+            const row2 = document.createElement('div');
+            row2.className = 'asset-row';
+            row2.innerHTML = `<span class="${isCompact ? 'asset-tag' : ''}">素材:</span>`;
+            otherFiles.forEach(file => row2.appendChild(createAssetLink(itemId, file)));
+            container.appendChild(row2);
+        }
+    }
+
+    function createAssetLink(id, fileName) {
+        const a = document.createElement('a');
+        a.href = CONFIG.assetsBase + id + '/' + fileName;
+        a.className = 'asset-link';
+        a.textContent = fileName;
+        a.target = '_blank';
+        return a;
+    }
+
+    function selectExam(index) {
+        if (!examData || index < 0 || index >= examData.Exam.length) return;
+        currentIndex = index;
+        const item = examData.Exam[index];
+        document.querySelectorAll('.exam-item').forEach(el => el.classList.remove('active'));
+        const activeItem = document.getElementById(`exam-item-${index}`);
+        if (activeItem) activeItem.classList.add('active');
+        document.getElementById('current-title').textContent = item.title;
+        const assetsContainer = document.getElementById('current-assets');
+        assetsContainer.innerHTML = '';
+        const assets = examData.Assets[item.id] || [];
+        renderAssetsToContainer(assetsContainer, item.id, assets, true);
+        document.getElementById('prev-btn').disabled = (index === 0);
+        document.getElementById('next-btn').disabled = (index === examData.Exam.length - 1);
+        document.getElementById('placeholder').style.display = 'none';
+        document.getElementById('exam-frame').src = CONFIG.examBase + item.path;
+    }
+
+    function prevExam() { if (currentIndex > 0) selectExam(currentIndex - 1); }
+    function nextExam() { if (examData && currentIndex < examData.Exam.length - 1) selectExam(currentIndex + 1); }
+
+    function toggleList(force) {
+        const nav = document.getElementById('top-nav');
+        const btn = document.getElementById('toggle-list-btn');
+        const isExpanded = (force !== undefined) ? force : !nav.classList.contains('expanded');
+        if (isExpanded) {
+            nav.classList.add('expanded');
+            btn.textContent = '收起题目列表';
+        } else {
+            nav.classList.remove('expanded');
+            btn.textContent = '展开题目列表';
+        }
+    }
+
+    // Modal 逻辑
+    async function showAssetModal() {
+        const modal = document.getElementById('asset-modal');
+        const content = document.getElementById('modal-content');
+        const item = examData.Exam[currentIndex];
+        const assets = examData.Assets[item.id] || [];
+        
+        document.getElementById('modal-title').textContent = `素材查看: ${item.title}`;
+        content.innerHTML = '<p>正在加载素材内容...</p>';
+        modal.style.display = 'flex';
+
+        let html = '';
+
+        // 处理 docx -> md
+        const docxFiles = assets.filter(f => f.toLowerCase().endsWith('.docx'));
+        for (const f of docxFiles) {
+            const mdFile = f.replace(/\.docx$/, '.md');
+            const mdUrl = `${CONFIG.mdBase}${item.id}/${mdFile}`;
+            const mdText = await fetchText(mdUrl);
+            if (mdText) {
+                html += `<div class="viewer-title">文档内容: ${f}</div>`;
+                html += `<div class="markdown-viewer">${formatMarkdown(mdText)}</div>`;
+            }
+        }
+
+        // 处理 ipynb -> py, ans.py, diff
+        const ipynbFiles = assets.filter(f => f.toLowerCase().endsWith('.ipynb') && !f.toLowerCase().includes('.ans.'));
+        for (const f of ipynbFiles) {
+            const base = f.replace(/\.ipynb$/, '');
+            const pyFile = base + '.ipynb.py';
+            const ansFile = base + '.ans.ipynb.py';
+            const diffFile = pyFile + '.diff';
+
+            const diffUrl = `${CONFIG.assetsBase}${item.id}/${diffFile}`;
+            const pyUrl = `${CONFIG.assetsBase}${item.id}/${pyFile}`;
+            const ansUrl = `${CONFIG.assetsBase}${item.id}/${ansFile}`;
+
+            const diffText = await fetchText(diffUrl);
+            const pyText = await fetchText(pyUrl);
+            const ansText = await fetchText(ansUrl);
+
+            if (diffText) {
+                html += `<div class="code-viewer"><div class="viewer-title">差异对比 (Diff): ${diffFile}</div>`;
+                html += `<div class="diff-container">${formatDiff(diffText)}</div></div>`;
+            }
+            if (pyText && ansText) {
+                html += `<div class="code-viewer"><div class="viewer-title">代码对比: 左(${pyFile}) | 右(${ansFile})</div>`;
+                html += renderParallel(pyText, ansText);
+                html += `</div>`;
+            }
+        }
+
+        if (!html) html = '<p>未找到可直接查看的素材内容。请点击素材链接下载查看。</p>';
+        content.innerHTML = html;
+    }
+
+    async function showAIAnalysis() {
+        const modal = document.getElementById('asset-modal');
+        const content = document.getElementById('modal-content');
+        const item = examData.Exam[currentIndex];
+        
+        document.getElementById('modal-title').textContent = `AI解析: ${item.title}`;
+        content.innerHTML = '<p>正在加载 AI 解析内容...</p>';
+        modal.style.display = 'flex';
+
+        const aiUrl = `${CONFIG.aiBase}${item.id}.md`;
+        const aiText = await fetchText(aiUrl);
+
+        if (aiText) {
+            content.innerHTML = `<div class="markdown-viewer">${formatMarkdown(aiText)}</div>`;
+        } else {
+            content.innerHTML = `<p style="color: #666; padding: 20px;">未找到对应的 AI 解析文件 (${aiUrl})。</p>`;
+        }
+    }
+
+    function hideAssetModal() {
+        document.getElementById('asset-modal').style.display = 'none';
+    }
+
+    async function fetchText(url) {
+        try {
+            const r = await fetch(url);
+            if (!r.ok) return null;
+            return await r.text();
+        } catch { return null; }
+    }
+
+    function formatMarkdown(text) {
+        // 极简 Markdown 格式化
+        return text.replace(/\n/g, '<br>')
+                   .replace(/^# (.*$)/gm, '<h1>$1</h1>')
+                   .replace(/^## (.*$)/gm, '<h2>$1</h2>')
+                   .replace(/^### (.*$)/gm, '<h3>$1</h3>')
+                   .replace(/^\* (.*$)/gm, '<li>$1</li>')
+                   .replace(/`(.*?)`/g, '<code>$1</code>');
+    }
+
+    function formatDiff(text) {
+        return text.split('\n').map(line => {
+            let cls = '';
+            if (line.startsWith('+')) cls = 'diff-added';
+            else if (line.startsWith('-')) cls = 'diff-removed';
+            return `<div class="${cls}">${escapeHtml(line)}</div>`;
+        }).join('');
+    }
+
+    function renderParallel(text1, text2) {
+        const lines1 = text1.split('\n');
+        const lines2 = text2.split('\n');
+        const maxLines = Math.max(lines1.length, lines2.length);
+        let nums = '';
+        for (let i = 1; i <= maxLines; i++) nums += `<div>${i}</div>`;
+        return `<div class="parallel-viewer"><div class="code-pane">${escapeHtml(text1)}</div><div class="line-numbers">${nums}</div><div class="code-pane">${escapeHtml(text2)}</div></div>`;
+    }
+
+    function escapeHtml(text) {
+        const map = {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'};
+        return text.replace(/[&<>"']/g, m => map[m]);
+    }
+
+    init();
+</script>
+
+</body>
+</html>

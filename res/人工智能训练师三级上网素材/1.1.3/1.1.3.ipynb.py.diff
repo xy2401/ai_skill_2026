@@ -1,0 +1,33 @@
+--- res/人工智能训练师三级上网素材/1.1.3/1.1.3.ipynb.py
++++ res/人工智能训练师三级上网素材/1.1.3/1.1.3.ans.ipynb.py
+@@ -9,2 +9,2 @@
+-missing_values = data._________       #数据缺失值统计 2分
+
+-duplicate_values = data._________     #数据重复值统计 2分
+
++missing_values = data.isnull().sum()       #数据缺失值统计 2分
+
++duplicate_values = data.duplicated().sum()     #数据重复值统计 2分
+
+@@ -19,4 +19,4 @@
+-data['is_age_valid'] = _________._________(18, 70)              #Age数据的合理性审核 2分
+
+-data['is_income_valid'] = _________ > _________                 #Income数据的合理性审核 2分
+
+-data['is_loan_amount_valid'] = _________ < (_________ * 5)      #LoanAmount数据的合理性审核 2分
+
+-data['is_credit_score_valid'] = _________._________(300, 850)   #CreditScore数据的合理性审核 2分
+
++data['is_age_valid'] = data['Age'].between(18, 70)              #Age数据的合理性审核 2分
+
++data['is_income_valid'] = data['Income'] > 2000                 #Income数据的合理性审核 2分
+
++data['is_loan_amount_valid'] = data['LoanAmount'] < (data['Income'] * 5)      #LoanAmount数据的合理性审核 2分
+
++data['is_credit_score_valid'] = data['CreditScore'].between(300, 850)   #CreditScore数据的合理性审核 2分
+
+@@ -39 +39 @@
+-_________._________(_________, index=False)
+
++cleaned_data.to_csv('cleaned_credit_data.csv', index=False)
+

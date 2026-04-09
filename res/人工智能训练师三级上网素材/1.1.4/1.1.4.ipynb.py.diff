@@ -1,0 +1,69 @@
+--- res/人工智能训练师三级上网素材/1.1.4/1.1.4.ipynb.py
++++ res/人工智能训练师三级上网素材/1.1.4/1.1.4.ans.ipynb.py
+@@ -7 +7 @@
+-data =  _______________________________
+
++data =  pandas.read_csv('user_behavior_data.csv')
+
+@@ -11 +11 @@
+-print(________________________________)
+
++print(data.head())
+
+@@ -16 +16 @@
+-data = ________________________________
+
++data = data.dropna()
+
+@@ -19,3 +19,3 @@
+-data________________ = ________________(int)   # Age数据类型转换为int 2分
+
+-data________________ = ________________(float) # PurchaseAmount数据类型转换为float  2分
+
+-data________________ = ________________(int)   # ReviewScore数据类型转换为int 2分
+
++data['Age'] = data['Age'].astype(int)   # Age数据类型转换为int 2分
+
++data['PurchaseAmount'] = data['PurchaseAmount'].astype(float) # PurchaseAmount数据类型转换为float  2分
+
++data['ReviewScore'] = data['ReviewScore'].astype(int)   # ReviewScore数据类型转换为int 2分
+
+@@ -24 +24 @@
+-data = data[(________________.________________(18, 70)) & 
+
++data = data[(data['Age'].between(18, 70)) & 
+
+@@ -26 +26 @@
+-            (________________.________________(1, 5))]
+
++            (data['ReviewScore'].between(1, 5))]
+
+@@ -29,2 +29,2 @@
+-data['PurchaseAmount'] = (data['PurchaseAmount'] - ________________) / ________________  # PurchaseAmount数据标准化 2分
+
+-data['ReviewScore'] = (data['ReviewScore'] - ________________) / ________________        # ReviewScore数据标准化 2分
+
++data['PurchaseAmount'] = (data['PurchaseAmount'] - data['PurchaseAmount'].mean()) /  data['PurchaseAmount'].std()  # PurchaseAmount数据标准化 2分
+
++data['ReviewScore'] = (data['ReviewScore'] -  data['ReviewScore'].mean()) / data['ReviewScore'].std()        # ReviewScore数据标准化 2分
+
+@@ -33 +33 @@
+-________________('cleaned_user_behavior_data.csv', index=False)
+
++data.to_csv('cleaned_user_behavior_data.csv', index=False)
+
+@@ -39 +39 @@
+-purchase_category_counts = ________________.________________
+
++purchase_category_counts = data['PurchaseCategory'].value_counts()
+
+@@ -43 +43 @@
+-gender_purchase_amount_mean = ________________(________________)['PurchaseAmount'].mean()
+
++gender_purchase_amount_mean = data.groupby('Gender')['PurchaseAmount'].mean()
+
+@@ -49 +49 @@
+-data['AgeGroup'] = pandas.________________(________________, right=False)
+
++data['AgeGroup'] = pandas.cut(data['Age'],bins=bins,labels=labels, right=False)
+

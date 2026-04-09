@@ -1,0 +1,105 @@
+--- res/人工智能训练师三级上网素材/2.2.3/2.2.3.ipynb.py
++++ res/人工智能训练师三级上网素材/2.2.3/2.2.3.ans.ipynb.py
+@@ -9 +9 @@
+-df = __________
+
++df = pd.read_csv('fitness analysis.csv')
+
+@@ -12 +12 @@
+-print(__________)
+
++print(df.head())
+
+@@ -15 +15,3 @@
+-df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+
++#df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+
++df = df.map(lambda x: x.strip() if isinstance(x, str) else x)
+
++
+
+@@ -22 +24 @@
+-X = __________(X)  # 将分类变量转为数值变量
+
++X = pd.get_dummies(X)  # 将分类变量转为数值变量
+
+@@ -25 +27 @@
+-y = __________(lambda x: int(x.split(' ')[0]))  # 假设年龄段为整数
+
++y = df['Your age'].apply(lambda x: int(x.split(' ')[0]))  # 假设年龄段为整数
+
+@@ -28 +30 @@
+-X_train, X_test, y_train, y_test = __________(__________, random_state=42)
+
++X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.2, random_state=42)
+
+@@ -31 +33 @@
+-rf_model = __________(__________, random_state=42)
+
++rf_model = RandomForestRegressor(n_estimators=100, random_state=42)
+
+@@ -33 +35 @@
+-__________
+
++rf_model.fit(X_train,y_train)
+
+@@ -37 +39 @@
+-    pickle.__________
+
++    pickle.dump(rf_model,model_file)
+
+@@ -40 +42 @@
+-y_pred = __________
+
++y_pred = rf_model.predict(X_test)
+
+@@ -45,4 +47,4 @@
+-train_score = __________   #训练集分数
+
+-test_score = __________    #测试集分数
+
+-mse = __________  #均方误差
+
+-r2 = __________  #决定系数
+
++train_score = rf_model.score(X_train, y_train)   #训练集分数
+
++test_score = rf_model.score(X_test,y_test)    #测试集分数
+
++mse = mean_squared_error(y_test, y_pred)  #均方误差
+
++r2 = r2_score(y_test, y_pred)  #决定系数
+
+@@ -57 +59 @@
+-xgb_model = __________(__________, random_state=42)
+
++xgb_model = xgb.XGBRegressor(n_estimators=100, random_state=42)
+
+@@ -59 +61 @@
+-__________
+
++xgb_model.fit(X_train,y_train)
+
+@@ -61 +63 @@
+-y_pred_xgb = __________
+
++y_pred_xgb = xgb_model.predict(X_test)
+
+@@ -67,4 +69,4 @@
+-    xgb_report_file.write(f'XGBoost训练集得分: {__________}\n')
+
+-    xgb_report_file.write(f'XGBoost测试集得分: {__________}\n')
+
+-    xgb_report_file.write(f'XGBoost均方误差(MSE): {__________}\n')
+
+-    xgb_report_file.write(f'XGBoost决定系数(R^2): {__________)}\n')
+
++    xgb_report_file.write(f'XGBoost训练集得分: {xgb_model.score(X_train,y_train)}\n')
+
++    xgb_report_file.write(f'XGBoost测试集得分: {xgb_model.score(X_test,y_test)}\n')
+
++    xgb_report_file.write(f'XGBoost均方误差(MSE): {mean_squared_error(y_test,y_pred_xgb)}\n')
+
++    xgb_report_file.write(f'XGBoost决定系数(R^2): {r2_score(y_test, y_pred_xgb)}\n')
+

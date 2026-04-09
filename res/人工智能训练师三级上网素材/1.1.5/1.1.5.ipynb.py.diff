@@ -1,0 +1,92 @@
+--- res/人工智能训练师三级上网素材/1.1.5/1.1.5.ipynb.py
++++ res/人工智能训练师三级上网素材/1.1.5/1.1.5.ans.ipynb.py
+@@ -7 +7 @@
+-data = _____________
+
++data = pd.read_csv('vehicle_traffic_data.csv')
+
+@@ -11 +11 @@
+-print(_____________)
+
++print(data.head())
+
+@@ -16 +16 @@
+-data = _____________
+
++data = data.dropna()
+
+@@ -19,4 +19,4 @@
+-data_____________ = _____________(int)       #Age数据类型转换为int 1分
+
+-data_____________ = _____________(float)     #Speed数据类型转换为float 1分
+
+-data_____________ = _____________(float)     #TravelDistance数据类型转换为float 1分
+
+-data_____________ = _____________(float)     #TravelTime数据类型转换为float 1分
+
++data['Age']= data['Age'].astype(int)       #Age数据类型转换为int 1分
+
++data['Speed']= data['Speed'].astype(float)     #Speed数据类型转换为float 1分
+
++data['TravelDistance'] = data['TravelDistance'].astype(float)     #TravelDistance数据类型转换为float 1分
+
++data['TravelTime'] = data['TravelTime'].astype(float)     #TravelTime数据类型转换为float 1分
+
+@@ -25,4 +25,4 @@
+-data = data[(_____________(18, 70))  & 
+
+-            (_____________(0, 200)) & 
+
+-            (_____________(1, 1000)) & 
+
+-            (_____________(1, 1440))]
+
++data = data[(data['Age'].between(18, 70))  & 
+
++            (data['Speed'].between(0, 200)) & 
+
++            (data['TravelDistance'].between(1, 1000)) & 
+
++            (data['TravelTime'].between(1, 1440))]
+
+@@ -31 +31 @@
+-_____________('cleaned_vehicle_traffic_data.csv', index=False)
+
++data.to_csv('cleaned_vehicle_traffic_data.csv', index=False)
+
+@@ -37,4 +37,4 @@
+-unreasonable_data = data[~((_____________(18, 70)) & 
+
+-                           (_____________(0, 200)) & 
+
+-                           (_____________(1, 1000)) & 
+
+-                           (_____________(1, 1440)))]
+
++unreasonable_data = data[~((data['Age'].between(18, 70)) & 
+
++                           (data['Speed'].between(0, 200)) & 
+
++                           (data['TravelDistance'].between(1, 1000)) & 
+
++                           (data['TravelTime'].between(1, 1440)))]
+
+@@ -45 +45 @@
+-traffic_event_counts = _____________
+
++traffic_event_counts = data['TrafficEvent'].value_counts()
+
+@@ -49 +49 @@
+-gender_stats = data._____________._____________
+
++gender_stats = data.groupby('Gender').agg({'Speed':'mean','TravelDistance':'mean','TravelTime':'mean'})
+
+@@ -55,2 +55,2 @@
+-data['AgeGroup'] = _____________(_____________,_____________,_____________, right=False)
+
+-age_group_counts = _____________
+
++data['AgeGroup'] = pd.cut(data['Age'],bins=age_bins,labels=age_labels, right=False)
+
++age_group_counts = data['AgeGroup'].value_counts()
+

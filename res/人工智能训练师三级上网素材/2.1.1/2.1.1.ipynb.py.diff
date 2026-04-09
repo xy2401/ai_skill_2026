@@ -1,0 +1,58 @@
+--- res/人工智能训练师三级上网素材/2.1.1/2.1.1.ipynb.py
++++ res/人工智能训练师三级上网素材/2.1.1/2.1.1.ans.ipynb.py
+@@ -4 +4 @@
+-data = __________
+
++data = pd.read_csv('auto-mpg.csv')
+
+@@ -6 +6 @@
+-print(__________)
+
++print(data.head())
+
+@@ -13,2 +13,2 @@
+-print(__________.__________.__________)  
+
+-data = __________
+
++print(data.isnull().sum())  
+
++data = data.dropna()
+
+@@ -17,2 +17,2 @@
+-data['horsepower'] = __________(data['horsepower'], errors='coerce')
+
+-data = __________
+
++data['horsepower'] = pd.to_numeric(data['horsepower'], errors='coerce')
+
++data = data.dropna(subset=['horsepower'])
+
+@@ -31 +31 @@
+-data[numerical_features] = __________
+
++data[numerical_features] = scaler.fit_transform(data[numerical_features])
+
+@@ -35,3 +35,3 @@
+-selected_features = __________
+
+-X = __________
+
+-y = __________
+
++selected_features = ['cylinders','displacement','horsepower','weight','acceleration','model year','origin']
+
++X = data[selected_features]
+
++y = data['mpg']
+
+@@ -40 +40 @@
+-X_train, X_test, y_train, y_test = __________(__________, random_state=42)
+
++X_train, X_test, y_train, y_test =  train_test_split(X,y,train_size=0.8, random_state=42)
+
+@@ -48 +48 @@
+-__________('2.1.1_cleaned_data.csv', __________)
+
++cleaned_data.to_csv('2.1.1_cleaned_data.csv', index=False)
+

@@ -3,14 +3,12 @@
 
 
 
+**[模拟界面](exam_data_viewer.html)**
 
 
-[人工智能训练师三级上网](res/ai_3_questions.html)
+[试题列表](res/exam_data.md)
 
-
-[word文档列表](res/docx.md)
-
-
+ 
 
 
 
@@ -31,4 +29,3 @@
 -   [信息安全管理员（三级、四级）虚拟机环境下载（仅供参考）](https://pan.baidu.com/s/1D-3mvVErW9JWVB6w_bJL4A?pwd=3uxn)
 -   [个人承诺书](https://gjzs.sjtu.edu.cn/uploads/addons/skill/%E4%B8%AA%E4%BA%BA%E6%89%BF%E8%AF%BA%E4%B9%A6.zip)
 -   
-

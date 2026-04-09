@@ -1,0 +1,39 @@
+--- res/人工智能训练师三级上网素材/3.2.3/3.2.3.ipynb.py
++++ res/人工智能训练师三级上网素材/3.2.3/3.2.3.ans.ipynb.py
+@@ -11 +11,2 @@
+-    img = img.resize((64, 64), Image.ANTIALIAS)    # 调整图像大小到模型输入所需的尺寸
+
++    #img = img.resize((64, 64), Image.ANTIALIAS)    # 调整图像大小到模型输入所需的尺寸
+
++    img = img.resize((64, 64), Image.Resampling.LANCZOS) 
+
+@@ -21 +22 @@
+-emotion_table = {____________}
+
++emotion_table = {'neutral':0, 'happiness':1, 'surprise':2, 'sadness':3, 'anger':4, 'disgust':5, 'fear':6, 'contempt':7}
+
+@@ -25 +26 @@
+-ort_session = ____________    # 使用onnxruntime创建一个会话，用于加载并运行模型
+
++ort_session = ort.InferenceSession('emotion-ferplus.onnx')    # 使用onnxruntime创建一个会话，用于加载并运行模型
+
+@@ -29 +30 @@
+-input_data = ____________
+
++input_data = preprocess('img_test.png')
+
+@@ -37 +38 @@
+-ort_outs = ____________(None, ____________)
+
++ort_outs = ort_session.run(None, ort_inputs)
+
+@@ -41 +42 @@
+-predicted_label = ____________(ort_outs[0])
+
++predicted_label = np.argmax(ort_outs[0])
+
+@@ -45 +46 @@
+-predicted_emotion = ____________[predicted_label]
+
++predicted_emotion = list(emotion_table)[predicted_label]
+
