@@ -8,7 +8,8 @@
 
 **[试题列表](res/exam_data.md)**
 
- 
+**[python 类库快速入门](lib.101.md)**
+
 
 
 

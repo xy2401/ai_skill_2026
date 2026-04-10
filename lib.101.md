@@ -10,45 +10,54 @@
 *用途：表格数据（CSV/Excel）的清洗、处理、统计。*
 
 *   **`read_csv` / `read_excel`**: 读取外部数据。
-*   **`DataFrame`**: Pandas 的核心对象，代表一张二维表。
-*   **`cut`**: **(必考)** 用于“分箱”或“离散化”。例如：将年龄（连续值）划分为“青年”、“中年”、“老年”。
-*   **`get_dummies`**: **(必考)** 独热编码（One-Hot Encoding）。将分类变量（如“性别”）转换为 0/1 矩阵，供机器学习模型使用。
-*   **`to_datetime`**: 将字符串转为日期格式，便于计算日期差。
-*   **`value_counts()`**: 统计某一列中每个值出现的次数（如：统计男女比例）。
-*   **`groupby()`**: 分组操作。常配合 `mean()`, `sum()`, `count()` 使用。
+*   **`data.head()`**: 查看数据前几行。
+*   **`data.columns.to_list()`**: 获取列名列表。
+*   **`isnull().sum()`**: **(常用)** 统计每列缺失值数量。
+*   **`pd.to_numeric`**: **(必考)** 将列转换为数值类型，`errors='coerce'` 会将无法转换的值设为 NaN。
+*   **`cut`**: **(必考)** 用于“分箱”或“离散化”。例如：将年龄划分为“青年”、“中年”、“老年”。
+*   **`get_dummies`**: **(必考)** 独热编码（One-Hot Encoding）。将分类变量转换为 0/1 矩阵。
+*   **`to_datetime`**: 将字符串转为日期格式。
+*   **`isin()`**: 判断值是否在给定的列表中。
+*   **`value_counts()`**: 统计某一列中每个值出现的次数。
+*   **`groupby()`**: 分组操作。常配合 `mean()`, `sum()`, `count()`, `agg(['mean', 'count'])` 使用。
 *   **`apply()`**: 对每一行或每一列执行自定义函数。
-*   **`fillna()` / `dropna()`**: 处理缺失值（填充或删除）。
+*   **`fillna()` / `dropna()`**: 处理缺失值。`dropna(subset=['col'])` 仅针对特定列删除。
+*   **`ffill()` / `bfill()`**: 前向/后向填充缺失值。
+*   **`drop(columns=['col'])`**: 删除指定列。
+*   **`to_csv('file.csv', index=False)`**: 保存数据，通常不保存索引。`sep='\t'` 可保存为制表符分隔。
 
 ### **Numpy (`import numpy as np`)**
 *用途：高性能数值计算、矩阵处理。*
 
 *   **`array`**: 创建数组（矩阵）。
-*   **`where(condition, x, y)`**: **(常用)** 条件赋值。如果满足条件则设为 x，否则设为 y。
+*   **`where(condition, x, y)`**: **(常用)** 条件赋值。
 *   **`argmax`**: 返回数组中最大值的索引（常用于多分类结果解析）。
-*   **`expand_dims`**: 在指定维度增加一个轴（如：将 (224, 224, 3) 的图片变为 (1, 224, 224, 3) 准备输入模型）。
+*   **`argsort`**: 返回数组排序后的索引（如：`[-5:][::-1]` 获取 Top-5 索引）。
+*   **`expand_dims(img, axis=0)`**: **(常用)** 在指定维度增加一个轴，常用于增加 Batch 维度。
 *   **`inf`**: 代表无穷大，常用于定义分箱的边界。
-*   **`transpose`**: 矩阵转置（如：调整图像通道顺序 [H, W, C] -> [C, H, W]）。
+*   **`transpose`**: 矩阵转置。
 
 ---
 
 ## 2. 机器学习建模 (Scikit-Learn & XGBoost)
 
 ### **预处理 (`sklearn.preprocessing`)**
-*   **`StandardScaler`**: 标准化。将数据转换为均值为 0，方差为 1。
-*   **`MinMaxScaler`**: 归一化。将数据压缩到 [0, 1] 区间（对神经网络或 SVM 很有用）。
-*   **`LabelEncoder`**: 标签编码。将字符串标签转换为数字 (0, 1, 2...)。
+*   **`StandardScaler`**: 标准化。
+*   **`MinMaxScaler`**: 归一化。
+*   **`LabelEncoder`**: 标签编码。
+*   **`fit_transform`**: 一步执行拟合与转换。
 
 ### **模型准备与评估 (`sklearn.model_selection` & `metrics`)**
-*   **`train_test_split`**: **(必考)** 将数据集划分为训练集和测试集（通常比例 8:2 或 7:3）。
-*   **`r2_score`**: 评估回归模型的拟合优度（越接近 1 越好）。
+*   **`train_test_split`**: **(必考)** 划分训练集和测试集。常用参数：`test_size=0.2`, `random_state=42`。
+*   **`r2_score`**: 评估回归模型的拟合优度。
 *   **`mean_squared_error (MSE)`**: 均方误差。
 *   **`mean_absolute_error (MAE)`**: 平均绝对误差。
 
 ### **模型算法**
 *   **`LinearRegression`**: 线性回归。
 *   **`DecisionTreeRegressor`**: 决策树回归。
-*   **`RandomForestRegressor`**: 随机森林回归（通常比单棵决策树更稳健）。
-*   **`XGBRegressor`**: **(热门)** XGBoost 算法，常用于竞赛或实际生产中。
+*   **`RandomForestRegressor`**: 随机森林回归。
+*   **`XGBRegressor`**: **(热门)** XGBoost 算法。常用参数：`n_estimators`, `subsample`, `colsample_bytree`。
 
 ---
 
@@ -56,38 +65,38 @@
 
 ### **OpenCV (`import cv2`)**
 *   **`imread` / `imwrite`**: 读取和保存图像。
-*   **`cvtColor`**: 颜色空间转换。最常见的是 `cv2.COLOR_BGR2RGB`（OpenCV 默认 BGR，Matplotlib/模型通常需 RGB）。
-*   **`resize`**: 缩放图像至模型指定大小（如 224x224）。
-*   **`rectangle`**: 在图上画框（用于目标检测结果展示）。
+*   **`cvtColor`**: 颜色空间转换（`cv2.COLOR_BGR2RGB`）。
+*   **`resize`**: 缩放图像至模型指定大小（如 `(224, 224)` 或 `(320, 240)`）。
+*   **`rectangle`**: 在图上画框。
 
 ### **PIL (Pillow)**
-*   **`Image.open`**: 读取图片。简单处理时常用。
+*   **`Image.open`**: 读取图片。常用 `.convert('RGB')` 确保通道统一。
 
 ---
 
 ## 4. 可视化 (Matplotlib & Seaborn)
 
 ### **Matplotlib (`import matplotlib.pyplot as plt`)**
-*   **`figure`**: 创建画布。
-*   **`subplot`**: 在一个画布上画多个子图。
-*   **`scatter`**: 散点图（常用于查看两个变量的关系）。
-*   **`legend`**: 显示图例。
-*   **`FontProperties`**: **(解决中文显示)** 用于加载中文字体文件，否则标题里的中文会变方框。
+*   **`figure`**, **`subplot`**, **`scatter`**, **`legend`**。
+*   **`FontProperties`**: 解决中文显示问题。
 
 ### **Seaborn (`import seaborn as sns`)**
-*   **`boxplot`**: 箱线图。展示数据分布、中位数及异常值的利器。
+*   **`boxplot`**: 箱线图。
 
 ---
 
 ## 5. 模型部署与工具 (ONNX & System)
 
-### **ONNX Runtime**
-*   **`InferenceSession`**: **(三级必考)** 用于加载 `.onnx` 模型并进行推理（Inference）。这是一种跨框架的模型运行方式。
+### **ONNX Runtime (`import onnxruntime as ort`)**
+*   **`InferenceSession`**: **(三级必考)** 加载 `.onnx` 模型并进行推理。
+*   **`get_inputs()[0].name`**: 获取输入节点名称。
+*   **`run([output_name], {input_name: data})`**: 模型推理。第一个参数为 `None` 时返回所有输出。
 
 ### **系统与持久化**
 *   **`os.makedirs`**: 递归创建目录。
-*   **`joblib` / `pickle`**: **(必考)** 保存和加载训练好的模型文件（`.pkl` 或 `.joblib`）。
-*   **`time`**: 用于计算代码执行耗时（如：统计单张图片推理时间）。
+*   **`joblib.dump` / `joblib.load`**: **(必考)** 保存和加载训练好的模型文件。
+*   **`time`**: 计算代码执行耗时。
+*   **`scipy.special.softmax`**: 将推理结果转换为概率。
 
 ---
 
@@ -95,10 +104,11 @@
 
 | 任务 | 常用函数 |
 | :--- | :--- |
-| **数据清洗** | `data.dropna()`, `data.fillna()`, `data.drop_duplicates()` |
+| **数据清洗** | `data.dropna()`, `data.fillna()`, `data.isnull().sum()`, `pd.to_numeric()` |
 | **特征转换** | `pd.get_dummies(data)`, `pd.cut(data['age'], bins)` |
-| **数据划分** | `train_test_split(X, y, test_size=0.2)` |
+| **数据划分** | `train_test_split(X, y, test_size=0.2, random_state=42)` |
 | **模型训练** | `model.fit(X_train, y_train)` |
 | **模型预测** | `y_pred = model.predict(X_test)` |
+| **模型推理** | `session.run(None, {input_name: img})` |
 | **图片预处理** | `cv2.resize(img, (224, 224))`, `cv2.cvtColor(img, cv2.COLOR_BGR2RGB)` |
 | **保存模型** | `joblib.dump(model, 'model.pkl')` |
