@@ -423,29 +423,47 @@
     }
 
     function renderAssetsToContainer(container, itemId, assets, isCompact = false) {
-        const ipynbFiles = assets.filter(f => f.toLowerCase().includes('ipynb'));
-        const otherFiles = assets.filter(f => !f.toLowerCase().includes('ipynb'));
+        // 过滤掉 .ipynb.html 文件，这类文件不再直接展示
+        const filteredAssets = assets.filter(f => !f.toLowerCase().endsWith('.ipynb.html'));
+        
+        const ipynbFiles = filteredAssets.filter(f => f.toLowerCase().includes('ipynb'));
+        const otherFiles = filteredAssets.filter(f => !f.toLowerCase().includes('ipynb'));
+        
         const quesIpynb = ipynbFiles.filter(f => !f.toLowerCase().includes('.ans.'));
         if (quesIpynb.length > 0) {
             const row = document.createElement('div');
             row.className = 'asset-row';
             row.innerHTML = `<span class="${isCompact ? 'asset-tag' : ''}">题目:</span>`;
-            quesIpynb.forEach(file => row.appendChild(createAssetLink(itemId, file)));
+            quesIpynb.forEach(file => {
+                row.appendChild(createAssetLink(itemId, file));
+                addHtmlTip(row, itemId, file);
+            });
             container.appendChild(row);
         }
+        
         const ansIpynb = ipynbFiles.filter(f => f.toLowerCase().includes('.ans.'));
         if (ansIpynb.length > 0) {
             const row = document.createElement('div');
             row.className = 'asset-row';
             row.innerHTML = `<span class="${isCompact ? 'asset-tag' : ''}">解答:</span>`;
-            ansIpynb.forEach(file => row.appendChild(createAssetLink(itemId, file)));
+            ansIpynb.forEach(file => {
+                row.appendChild(createAssetLink(itemId, file));
+                addHtmlTip(row, itemId, file);
+            });
             container.appendChild(row);
         }
+        
         if (otherFiles.length > 0) {
             const row2 = document.createElement('div');
             row2.className = 'asset-row';
             row2.innerHTML = `<span class="${isCompact ? 'asset-tag' : ''}">素材:</span>`;
-            otherFiles.forEach(file => row2.appendChild(createAssetLink(itemId, file)));
+            otherFiles.forEach(file => {
+                row2.appendChild(createAssetLink(itemId, file));
+                const ext = file.toLowerCase();
+                if (ext.endsWith('.docx') || ext.endsWith('.xlsx') || ext.endsWith('.xls')) {
+                    addHtmlTip(row2, itemId, file);
+                }
+            });
             container.appendChild(row2);
         }
     }
@@ -457,6 +475,20 @@
         a.textContent = fileName;
         a.target = '_blank';
         return a;
+    }
+
+    function addHtmlTip(container, id, fileName) {
+        const htmlLink = document.createElement('a');
+        htmlLink.href = CONFIG.assetsBase + id + '/' + fileName + '.html';
+        htmlLink.className = 'asset-link';
+        htmlLink.style.fontSize = '0.75rem';
+        htmlLink.style.backgroundColor = '#f8f9fa';
+        htmlLink.style.color = '#28a745';
+        htmlLink.style.marginLeft = '2px';
+        htmlLink.textContent = '[HTML查看]';
+        htmlLink.target = '_blank';
+        htmlLink.title = `查看 ${fileName} 的 HTML 版本`;
+        container.appendChild(htmlLink);
     }
 
     function selectExam(index) {
@@ -558,13 +590,26 @@
         content.innerHTML = '<p>正在加载 AI 解析内容...</p>';
         modal.style.display = 'flex';
 
-        const aiUrl = `${CONFIG.aiBase}${item.id}.md`;
-        const aiText = await fetchText(aiUrl);
+        const htmlUrl = `${CONFIG.aiBase}${item.id}.html`;
+        const mdUrl = `${CONFIG.aiBase}${item.id}.md`;
+        
+        // 先尝试获取 HTML 版本
+        try {
+            const hResponse = await fetch(htmlUrl, { method: 'HEAD' });
+            if (hResponse.ok) {
+                content.innerHTML = `<iframe src="${htmlUrl}" style="width:100%; height:70vh; border:none;"></iframe>`;
+                return;
+            }
+        } catch (e) {
+            console.log('HTML check failed, falling back to MD');
+        }
 
+        // 如果没有 HTML，尝试获取 MD 版本
+        const aiText = await fetchText(mdUrl);
         if (aiText) {
             content.innerHTML = `<div class="markdown-viewer">${formatMarkdown(aiText)}</div>`;
         } else {
-            content.innerHTML = `<p style="color: #666; padding: 20px;">未找到对应的 AI 解析文件 (${aiUrl})。</p>`;
+            content.innerHTML = `<p style="color: #666; padding: 20px;">未找到对应的 AI 解析文件 (尝试了 .html 和 .md)。</p>`;
         }
     }
 
